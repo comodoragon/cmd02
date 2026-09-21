@@ -1,0 +1,886 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="古漢英">
+<meta name="format-detection" content="telephone=no">
+<meta name="theme-color" content="#f3f3f1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e0e0e" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="icon" href="data:image/png;base64,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">
+<title>古漢英</title>
+<style>
+:root{
+  --bg:#f3f3f1;--card:#fff;--fg:#141414;--mut:#6d6d69;--line:#dcdcd8;--soft:#ebebe8;
+  --btn:#141414;--btnfg:#fff;--ok:#141414;--sheet:#fff;
+  --ja:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP","Noto Serif CJK JP",serif;
+  --ui:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",sans-serif;
+  --en:Georgia,"Times New Roman",serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#0e0e0e;--card:#191919;--fg:#ececea;--mut:#9a9a95;--line:#2e2e2c;--soft:#242422;--btn:#ececea;--btnfg:#111;--ok:#ececea;--sheet:#191919;}
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--ui);font-size:16px;line-height:1.55;-webkit-text-size-adjust:100%}
+body.lock{overflow:hidden}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;text-align:left}
+#app{max-width:520px;margin:0 auto;min-height:100vh;min-height:100dvh}
+.ja{font-family:var(--ja)}.en{font-family:var(--en)}
+.mut{color:var(--mut)}.sm{font-size:13px}
+
+/* badges */
+.lb{display:inline-flex;align-items:center;justify-content:center;min-width:1.7em;height:1.7em;padding:0 .3em;border-radius:6px;font-size:13px;font-weight:700;font-family:var(--ja);flex:none}
+.lb-k{border:1.5px solid var(--fg)}
+.lb-b{background:var(--fg);color:var(--bg)}
+.lb-e{border:1.5px dashed var(--fg)}
+.tag{font-size:12px;color:var(--mut);border:1px solid var(--line);border-radius:99px;padding:0 8px}
+.tag.k{color:var(--fg);border-color:var(--fg)}
+.lv{font-size:9px;letter-spacing:1px;color:var(--mut)}
+
+/* page */
+.page{padding:calc(env(safe-area-inset-top) + 18px) 16px calc(env(safe-area-inset-bottom) + 28px)}
+.hd{margin-bottom:14px}
+.hd h1{margin:0;font-size:26px;font-family:var(--ja);letter-spacing:.06em}
+.hd .sub{color:var(--mut);font-size:13px;margin-top:2px}
+.back{color:var(--mut);font-size:14px;display:block;margin-bottom:4px}
+.today{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}
+.tc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 8px;text-align:center}
+.tc b{display:block;font-size:26px;line-height:1.1;font-variant-numeric:tabular-nums}
+.tc span{font-size:12px;color:var(--mut)}
+.modes{display:grid;gap:8px;margin-bottom:8px}
+.modes3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:8px}
+.mode{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 14px;display:block;width:100%}
+.mode b{display:block;font-size:17px}
+.mode span{font-size:12.5px;color:var(--mut)}
+.mode.main{background:var(--btn);color:var(--btnfg);border-color:var(--btn)}
+.mode.main span{color:inherit;opacity:.7}
+.modes3 .mode{text-align:center;padding:12px 4px}
+.mode.wide{margin-bottom:8px}
+.setline{font-size:12.5px;color:var(--mut);margin:10px 2px}
+.warn{font-size:13px;border:1px solid var(--fg);border-radius:12px;padding:10px 12px;margin:10px 0}
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:18px;border-top:1px solid var(--line);padding-top:14px}
+.tabs button{text-align:center;padding:10px 0;border:1px solid var(--line);border-radius:12px;background:var(--card);font-size:14px}
+.stack{display:grid;gap:8px;margin-top:14px}
+
+/* session */
+.sess{display:flex;flex-direction:column;height:100vh;height:100dvh;max-width:520px;margin:0 auto}
+.top{display:flex;align-items:center;gap:12px;padding:calc(env(safe-area-inset-top) + 10px) 14px 8px}
+.x{font-size:22px;line-height:1;color:var(--mut);padding:4px 6px}
+.bar{flex:1;height:6px;background:var(--soft);border-radius:9px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--fg);transition:width .25s}
+.cnt{font-size:12px;color:var(--mut);font-variant-numeric:tabular-nums;min-width:3.2em;text-align:right}
+.cardv{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:8px 18px 20px}
+.meta{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.head{font-size:38px;line-height:1.25;margin:14px 0 18px;word-break:break-word;letter-spacing:.02em}
+.head.sm{font-size:28px;margin:6px 0 10px}
+.head.en{font-size:32px;letter-spacing:0}
+.qlab{font-size:13px;color:var(--mut);margin-top:14px}
+.qg{font-size:22px;line-height:1.5;margin:6px 0 18px}
+.opts{display:grid;gap:10px;margin-top:6px}
+.opt{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px 14px;font-size:17px;line-height:1.45;min-height:54px}
+.opt:active{background:var(--soft)}
+.actions{padding:10px 16px calc(env(safe-area-inset-bottom) + 12px);border-top:1px solid var(--line);background:var(--bg)}
+.btn{display:block;width:100%;text-align:center;background:var(--btn);color:var(--btnfg);border-radius:14px;padding:15px;font-size:17px;font-weight:600;border:1px solid var(--btn)}
+.btn.ghost{background:transparent;color:var(--fg);border:1px solid var(--line);font-weight:500}
+.btn.danger{background:transparent;color:var(--fg);border:1.5px solid var(--fg)}
+.two{display:grid;grid-template-columns:auto 1fr;gap:10px}
+.two.solo{grid-template-columns:1fr}
+.two .btn.ghost{padding:15px 18px}
+.gr{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.gb{border:1px solid var(--line);background:var(--card);border-radius:12px;padding:10px 4px;text-align:center}
+.gb b{display:block;font-size:14px}
+.gb span{font-size:11.5px;color:var(--mut)}
+.gb.g1{border-style:dashed}
+.gb.g4{background:var(--btn);color:var(--btnfg);border-color:var(--btn)}
+.gb.g4 span{color:inherit;opacity:.7}
+.res{display:inline-block;font-weight:700;font-size:14px;border:1.5px solid var(--fg);border-radius:99px;padding:1px 12px;margin-bottom:6px}
+.res.ng{border-style:dashed}
+
+/* card body */
+.ans .g{font-size:20px;font-weight:600;line-height:1.5;margin-bottom:4px}
+.meta2{font-size:13px;color:var(--mut);margin-bottom:6px}
+.m{margin:6px 0 10px;padding-left:1.2em;font-size:15px}
+.m li{margin:2px 0}
+.ex{border-left:2px solid var(--line);padding:2px 0 2px 12px;margin:10px 0}
+.exs{font-size:17px;line-height:1.7}
+.kd{font-size:15px;color:var(--mut);margin-top:2px}
+.tr{font-size:14px;color:var(--mut);margin-top:2px}
+.note{font-size:13.5px;background:var(--soft);border-radius:10px;padding:8px 10px;margin:8px 0}
+.dhead{display:flex;align-items:center;gap:8px}
+.ccs{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.cc{font-size:12px;border:1px solid var(--line);border-radius:99px;padding:0 9px;color:var(--mut)}
+.errs{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:8px 0;font-size:12.5px;color:var(--mut)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0}
+.chip{border:1px solid var(--line);background:var(--card);border-radius:99px;padding:6px 13px;font-size:14px}
+.chip.on{background:var(--btn);color:var(--btnfg);border-color:var(--btn)}
+
+/* links */
+.links{margin-top:14px;border-top:1px dashed var(--line);padding-top:10px}
+.lt{font-size:12px;color:var(--mut);letter-spacing:.15em;margin-bottom:6px}
+.lk{margin-bottom:10px}
+.ln{font-size:13px;color:var(--mut);margin:2px 0 0 2px}
+.et{font-size:11.5px;border:1px solid var(--line);border-radius:6px;padding:0 6px;color:var(--fg)}
+.ref{display:flex;align-items:center;gap:8px;width:100%;min-width:0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px 10px}
+.ref .rh{font-size:17px;white-space:nowrap;flex:0 1 auto;min-width:0;max-width:62%;overflow:hidden;text-overflow:ellipsis}
+.ref .rg{font-size:13px;color:var(--mut);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1;min-width:0}
+.hub{margin-top:10px;background:var(--soft);border-radius:12px;padding:9px 10px}
+.hn{font-weight:700;font-size:14px}
+.hs{font-size:13px;color:var(--mut);margin:2px 0 6px}
+.hrow{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:5px 0}
+.chip2{border:1px solid var(--line);background:var(--card);border-radius:8px;padding:2px 9px;font-size:15px}
+
+/* cards / stats */
+.card2{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:10px}
+.ct{font-size:12.5px;color:var(--mut);margin-bottom:8px}
+.kv{display:grid;grid-template-columns:repeat(5,1fr);text-align:center}
+.kv b{display:block;font-size:20px}.kv span{font-size:11px;color:var(--mut)}
+.rowl{display:flex;align-items:center;gap:10px;padding:6px 0;border-top:1px solid var(--soft);min-width:0}
+.rowl:first-of-type{border-top:0}
+.rowl .r{margin-left:auto;font-variant-numeric:tabular-nums;white-space:nowrap;flex:none}
+.rowl .ref{flex:1;width:auto}
+.bars{display:flex;gap:8px;align-items:flex-end;height:100px}
+.b{flex:1;text-align:center;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;font-size:11px;color:var(--mut)}
+.b i{display:block;width:100%;background:var(--fg);border-radius:4px 4px 0 0;min-height:2px}
+.b small{font-size:10.5px}
+.search{width:100%;font-size:16px;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--fg);margin-bottom:6px;-webkit-appearance:none}
+textarea{width:100%;font-size:16px;padding:10px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--fg);margin:8px 0;font-family:var(--ui)}
+.stack2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:6px}
+.lst{display:grid;grid-template-columns:minmax(0,1fr);gap:6px;margin-top:6px}
+.li.st-new .ref{opacity:.6}
+.li.st-weak .ref{border:1.5px dashed var(--fg)}
+.li.st-hall .ref{border-color:var(--fg)}
+
+/* sheet */
+.sheet-bg{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:20}
+.sheet{position:fixed;left:0;right:0;bottom:0;max-width:520px;margin:0 auto;z-index:21;background:var(--sheet);border-radius:18px 18px 0 0;max-height:82vh;max-height:82dvh;display:flex;flex-direction:column;border:1px solid var(--line)}
+.sh-top{display:flex;justify-content:flex-end;padding:8px 14px 0}
+.sh-top .x{font-size:14px}
+.sh-body{overflow-y:auto;-webkit-overflow-scrolling:touch;padding:0 18px calc(env(safe-area-inset-bottom) + 20px)}
+
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>window.__DATA__ = {"concepts":[{"id":"neg","n":"否定","s":"古「ず・じ・まじ」＝漢「不・非・無・未」＝英 not・never・no。漢文は語順が英語と同じ(主語＋否定辞＋動詞)で、返り点で戻して「ず」と読む。"},{"id":"caus","n":"使役","s":"古「す・さす・しむ」＝漢「使・令・教・遣」＝英 make・let・have・get。「使A V」と「make A V」は語順まで一致する。"},{"id":"pass","n":"受身","s":"古「る・らる」＝漢「見・被・為A所B・於」＝英 be p.p.・get p.p.・have O p.p.。被害のニュアンスを帯びやすい点が共通。"},{"id":"rhet","n":"疑問・反語","s":"古「や・か・やは・かは」＝漢「豈・安・何・乎・哉」＝英 How could…? などの修辞疑問。形は疑問、意味は強い否定(反語)。"},{"id":"cond","n":"仮定・条件","s":"古「未然形＋ば」「まし」＝漢「若・如・苟・縦・雖」＝英 if・unless・even if・even though。仮定(未確定)と確定(事実)の区別が軸。"},{"id":"dut","n":"当然・願望・意志","s":"古「べし」「む」「まほし」＝漢「当・応・須・宜・将・欲」＝英 should・must・will・want to。再読文字の多くがここに集まる。"},{"id":"surp","n":"驚き・怪異","s":"古「あさまし・あやし・驚く」＝漢「驚・怪・異」＝英 astonish・suspicious・wonder。古語の「驚く」は現代語と意味がずれる(偽の友)。"},{"id":"emo","n":"悲哀・感動","s":"古「あはれ・かなし・憂し」＝漢「哀・憐・憂・嘆」＝英 pity・grief・poignant。「あはれ」は悲しみに限らず、しみじみ心を打つ感情全般。"},{"id":"death","n":"死・別離","s":"古「亡くなる・往ぬ」＝漢「崩・薨・卒・逝」＝英 pass away・depart。死を直接言わない婉曲表現と、身分による使い分け(漢文)が焦点。"}],"cards":[{"id":"k-zu","l":"k","t":"g","h":"ず","p":"助動詞・未然形接続","g":"打消「〜ない」","m":["活用は「ず系(ず・ず・ず・ぬ・ね)」と「ざり系(ざら・ざり・ざる・ざれ・ざれ)」の二系列","連体形「ぬ」・已然形「ね」は係り結びでも頻出"],"ex":"花咲かぬ木も、春を待つ。","tr":"花が咲かない木も、春を待つ。","lv":1,"c":["neg"],"note":"ざり系は、後ろに助動詞(き・けり・む など)が続くときに使う。"},{"id":"k-ji","l":"k","t":"g","h":"じ","p":"助動詞・未然形接続","g":"打消推量・打消意志「〜ないだろう／〜まい」","m":["打消推量「〜ないだろう」(主語が三人称)","打消意志「〜まい」(主語が一人称)"],"ex":"我は行かじ。","tr":"私は行くまい。","lv":1,"c":["neg"],"cf":["k-mazi"],"note":"「む」(推量・意志)の打消にあたる。"},{"id":"k-mazi","l":"k","t":"g","h":"まじ","p":"助動詞・終止形接続(ラ変型は連体形)","g":"打消推量・打消当然・不可能・禁止・打消意志","m":["打消推量「〜ないだろう」","打消意志「〜まい」","打消当然「〜はずがない」「〜べきでない」","不可能「〜できない」","禁止「〜てはならない」"],"ex":"かかる事は世にあるまじ。","tr":"このようなことは世にあるはずがない。","lv":1,"c":["neg"],"cf":["k-ji"],"note":"「べし」の打消にあたる。べしの六つの意味に対応して、それぞれが打消になったと考える。"},{"id":"k-eneg","l":"k","t":"g","h":"え〜ず","p":"呼応の副詞「え」＋打消","g":"〜できない(不可能)","m":["「え」は必ず打消(ず・じ・まじ・ぬ など)と呼応する","副詞「え」だけでは意味が成立しない"],"ex":"夜更けて、え眠らず。","tr":"夜が更けて、眠ることができない。","lv":1,"c":["neg"],"note":"呼応の副詞(陳述の副詞)の代表。「え〜打消」＝不可能と覚える。"},{"id":"k-tsuyu","l":"k","t":"w","h":"つゆ〜ず／さらに〜ず","p":"呼応の副詞＋打消","g":"少しも〜ない(全否定)","m":["つゆ・さらに・たえて・よに などが打消と呼応して全否定を作る","「よに〜ず」も「決して〜ない」"],"ex":"そのこと、つゆ思ひ寄らず。","tr":"そのことは少しも思いつかない。","lv":1,"c":["neg"]},{"id":"k-nanaso","l":"k","t":"g","h":"な〜そ","p":"副詞「な」＋終助詞「そ」","g":"〜するな(禁止)","m":["「な」＋連用形＋「そ」で、やわらかな禁止「〜してくれるな」","カ変は未然形「な来(こ)そ」、サ変は「なせそ」の形をとる"],"ex":"な泣きそ。","tr":"泣かないでおくれ。","lv":1,"c":["neg"],"note":"終止形に「な」を付ける禁止(終助詞)より、ていねいでやわらかい言い方。"},{"id":"k-imada","l":"k","t":"w","h":"いまだ〜ず","p":"副詞＋打消","g":"まだ〜ない","m":["「未だ」＋打消で「まだ〜ない」","漢文の再読文字「未」の訓読も同じ形になる"],"ex":"いまだ都を見ず。","tr":"まだ都を見たことがない。","lv":1,"c":["neg"]},{"id":"b-fu","l":"b","t":"w","h":"不","r":"〜ず","p":"否定辞(動詞・形容詞を否定)","g":"〜ない","m":["否定する語(動詞・形容詞)の直前に置き、「〜ず」と読む","名詞の否定は「非」、存在の否定は「無」"],"ex":"人不知而不慍。","kd":"人知らずして慍みず。","tr":"人が自分を認めてくれなくても、不満に思わない。","lv":1,"c":["neg"],"cf":["b-hi","b-mu"],"note":"使い分け：不＝動詞・形容詞、非＝名詞(〜ではない)、無＝存在(ない)。"},{"id":"b-hi","l":"b","t":"w","h":"非","r":"〜(に)あらず","p":"否定辞(名詞述語・判断の否定)","g":"〜ではない","m":["名詞を否定して「〜にあらず」と読む","「非〜也」の形で覚える"],"ex":"非吾罪也。","kd":"吾が罪に非ざるなり。","tr":"私の罪ではない。","lv":1,"c":["neg"],"cf":["b-fu","b-mu"]},{"id":"b-mu","l":"b","t":"w","h":"無","r":"なシ","p":"存在の否定","g":"ない・いない(存在しない)","m":["「無A」＝Aが存在しない(「有」の反対)","文脈によって「なかれ」と読み、禁止を表すこともある"],"ex":"天無二日。","kd":"天に二日無し。","tr":"天に太陽は二つはない。","lv":1,"c":["neg"],"cf":["b-fu","b-hi"]},{"id":"b-imada","l":"b","t":"g","h":"未","r":"いまダ〜(ず)","p":"再読文字","g":"まだ〜ない","m":["読む順：未(いまだ)→動詞(未然形)→「ず」(返って再び読む)","「未嘗〜」＝いまだ嘗て〜ず(＝一度も〜ない)"],"ex":"未嘗敗北。","kd":"未だ嘗て敗北せず。","tr":"これまで一度も負けたことがない。","lv":1,"c":["neg"],"note":"再読文字は、最初に副詞として、あとで助動詞として二度読む。"},{"id":"b-nakare","l":"b","t":"g","h":"勿・莫・毋","r":"〜(スル)コトなかレ","p":"禁止","g":"〜するな(禁止)","m":["連体形＋「こと」＋「なかれ」と読む","「莫」は「なシ」(存在の否定)とも読むので文脈で区別する"],"ex":"己所不欲、勿施於人。","kd":"己の欲せざる所は、人に施すこと勿かれ。","tr":"自分がされたくないことは、人にしてはならない。","lv":1,"c":["neg"],"note":"禁止＝勿・莫・毋。「なかれ」と読む。"},{"id":"b-part","l":"b","t":"g","h":"不常〜／不必〜／不倶〜","r":"つねニハ〜ず／かならズシモ〜ず","p":"部分否定","g":"いつも(必ずしも・ともに)〜とは限らない","m":["否定辞が副詞(常・必・倶 など)の前にあると部分否定","否定辞が副詞の後にあると全否定(必不〜＝必ず〜ない)"],"ex":"有言者不必有徳。","kd":"言有る者は必ずしも徳有らず。","tr":"立派な言葉を述べる者が、必ずしも徳があるとは限らない。","lv":2,"c":["neg"],"note":"語順が意味を変える：不必(部分)／必不(全)。"},{"id":"b-fufuku","l":"b","t":"g","h":"不復〜","r":"また〜ず","p":"否定＋副詞","g":"二度と〜ない・もはや〜ない","m":["「不復〜」＝復た〜ず。『もう二度と〜ない』","「復」は否定を伴わなければ『また〜する』"],"ex":"壮士一去兮不復還。","kd":"壮士 一たび去りて復た還らず。","tr":"壮士は一度去ったなら、二度とは帰らない。","lv":2,"c":["neg"]},{"id":"e-nolonger","l":"e","t":"w","h":"no longer / not ... any longer","p":"副詞句(否定)","g":"もはや〜ない","m":["no longer は一般動詞の前・be動詞や助動詞の後に置く","not ... any longer / any more は文末に置く形もある"],"ex":"He no longer lives in this town.","tr":"彼はもうこの町には住んでいない。","lv":1,"c":["neg"]},{"id":"e-neverseen","l":"e","t":"g","h":"have never p.p. / not ... yet","p":"現在完了(経験・未完了の否定)","g":"(今まで)〜したことがない／まだ〜していない","m":["経験の否定：have never p.p.","未完了の否定：have not p.p. yet"],"ex":"I have never seen such a sight.","tr":"そのような光景は見たことがない。","lv":1,"c":["neg"]},{"id":"e-hardly","l":"e","t":"w","h":"hardly / scarcely / barely / seldom / rarely","p":"準否定の副詞","g":"ほとんど〜ない(準否定)","m":["hardly・scarcely・barely は程度、seldom・rarely は頻度が『ほとんどない』","文頭に置くと倒置になる(Hardly had he ... when ...)"],"ex":"She could hardly believe her own eyes.","tr":"彼女は自分の目がほとんど信じられなかった。","lv":1,"c":["neg"]},{"id":"e-part","l":"e","t":"g","h":"not always / not necessarily / not all","p":"部分否定","g":"いつも(必ずしも・すべて)〜とは限らない","m":["not＋always・necessarily・all・every・both などで部分否定","no・never・none・neither は全否定"],"ex":"The rich are not always happy.","tr":"金持ちが必ずしも幸せとは限らない。","lv":1,"c":["neg"]},{"id":"e-dont","l":"e","t":"g","h":"Don't ... / must not ... / Never ...","p":"禁止","g":"〜するな・〜してはならない(禁止)","m":["Don't＋原形(口語の禁止)、must not＋原形(強い禁止)","Never＋原形はさらに強い戒め"],"ex":"You must not touch the exhibits.","tr":"展示品に触れてはならない。","lv":1,"c":["neg"]},{"id":"k-su","l":"k","t":"g","h":"す・さす","p":"助動詞・未然形接続","g":"使役「〜させる」(＋尊敬)","m":["「す」は四段・ナ変・ラ変、「さす」はそれ以外の動詞の未然形に付く","下に「給ふ」が続くと尊敬(最高敬語)になるのが原則"],"ex":"童に文を持たせけり。","tr":"子供に手紙を持たせた。","lv":1,"c":["caus"],"cf":["k-shimu"]},{"id":"k-shimu","l":"k","t":"g","h":"しむ","p":"助動詞・未然形接続","g":"使役「〜させる」(＋尊敬)・漢文訓読調","m":["すべての活用語の未然形に付く","漢文訓読調・和歌に多い。「〜をして〜しむ」の形は漢文の使役と同じ"],"ex":"人をして見せしむ。","tr":"人に見させる。","lv":1,"c":["caus"],"cf":["k-su"]},{"id":"k-setamau","l":"k","t":"g","h":"せ給ふ・させ給ふ・しめ給ふ","p":"二重敬語の形","g":"尊敬(最高敬語)／使役＋尊敬","m":["「す・さす・しむ」＋「給ふ」は、原則として最高敬語(天皇・皇后など)の尊敬","使役の対象(〜に)が示されていれば「使役＋尊敬」と読む"],"ex":"帝、大臣に歌詠ませ給ふ。","tr":"帝は、大臣に歌をお詠ませになる。","lv":2,"c":["caus"],"cf":["k-su"],"note":"「〜に」の有無が判別のカギ。最高敬語は帝など身分の最高位の人物の動作に付く。"},{"id":"b-shi","l":"b","t":"g","h":"使A〜","r":"Aヲシテ〜しム","p":"使役形","g":"Aに〜させる","m":["語順は「使＋A(人)＋動詞」。Aには「をして」を補って読む","使・令・教・遣は同じ形を作る"],"ex":"使子路問津焉。","kd":"子路をして津を問はしむ。","tr":"子路に渡し場を尋ねさせた。","lv":1,"c":["caus"],"cf":["b-rei"],"note":"読む順：使→A→動詞→「しむ」と返る。"},{"id":"b-rei","l":"b","t":"g","h":"令A〜","r":"Aヲシテ〜しム","p":"使役形","g":"Aに〜させる","m":["「使」とほぼ同義","目上が目下に命じる場面に多い"],"ex":"王令臣行。","kd":"王 臣をして行かしむ。","tr":"王は私を行かせた。","lv":1,"c":["caus"],"cf":["b-shi"]},{"id":"b-kyou","l":"b","t":"g","h":"教A〜","r":"Aヲシテ〜しム","p":"使役形","g":"Aに〜させる","m":["「おしフ」ではなく使役として読む場合がある","前後の文脈で、名詞『教(おしえ)』・動詞『教ふ』と区別する"],"ex":"母教子読書。","kd":"母 子をして書を読ましむ。","tr":"母は子に書物を読ませた。","lv":2,"c":["caus"]},{"id":"b-ken","l":"b","t":"g","h":"遣A〜","r":"Aヲ遣ハシテ〜しム","p":"使役形","g":"Aを行かせて〜させる(派遣)","m":["「遣」は『つかはス』(派遣する)の意を含む使役","人を派遣して用を果たさせる場面で使う"],"ex":"遣人問之。","kd":"人を遣はして之を問はしむ。","tr":"人をやって、これを尋ねさせた。","lv":2,"c":["caus"],"cf":["b-shi"]},{"id":"e-make","l":"e","t":"g","h":"make A do","p":"使役動詞","g":"(強制的に・自然に)Aに〜させる","m":["make＋A＋原形。受動態では to 不定詞(be made to do)","強制のほか、感情や状況が原因で自然にそうなる場合にも使う"],"ex":"The teacher made the students rewrite the essay.","tr":"先生は生徒たちにエッセイを書き直させた。","lv":1,"c":["caus"],"cf":["e-let"]},{"id":"e-let","l":"e","t":"g","h":"let A do","p":"使役動詞","g":"Aに〜させてやる(許可)","m":["let＋A＋原形(許可・放任)","受動態は作らず、be allowed to を使う"],"ex":"Her parents let her go abroad alone.","tr":"両親は彼女が一人で海外に行くのを許した。","lv":1,"c":["caus"],"cf":["e-make"]},{"id":"e-have","l":"e","t":"g","h":"have A do","p":"使役動詞","g":"Aに〜してもらう・させる(当然の役目)","m":["have＋A＋原形","目上・専門家など、そうさせる立場にある場合に自然"],"ex":"I had my assistant book the hotel.","tr":"私は助手にホテルを予約させた。","lv":1,"c":["caus"],"cf":["e-get"]},{"id":"e-get","l":"e","t":"g","h":"get A to do","p":"使役表現","g":"Aを説得して〜してもらう","m":["get＋A＋to不定詞","働きかけて(説得して)相手にさせる含みがある"],"ex":"She got her brother to help her move.","tr":"彼女は兄を説得して引っ越しを手伝ってもらった。","lv":1,"c":["caus"],"cf":["e-have"]},{"id":"e-force","l":"e","t":"g","h":"force / compel / oblige A to do","p":"強制の動詞","g":"Aに(無理やり)〜させる","m":["force・compel・oblige＋A＋to do","受動態 be forced to do は『〜せざるを得ない』"],"ex":"The storm forced them to cancel the trip.","tr":"嵐のため、彼らは旅行を中止せざるを得なかった。","lv":2,"c":["caus"],"cf":["e-make"]},{"id":"k-ruraru","l":"k","t":"g","h":"る・らる","p":"助動詞・未然形接続","g":"受身・尊敬・自発・可能(四つの意味)","m":["受身「〜される」","尊敬「〜なさる」","自発「自然と〜される」(思ふ・偲ぶ・泣く など心情・知覚の動詞に付く)","可能「〜できる」(打消を伴うことが多い)"],"ex":"昔のことのしのばる。","tr":"昔のことが自然としのばれる。","lv":1,"c":["pass"],"note":"「る」は四段・ナ変・ラ変、「らる」はそれ以外の動詞の未然形に付く。意味は『受・尊・自・可』で覚える。"},{"id":"b-mi","l":"b","t":"g","h":"見〜","r":"〜(ラル)","p":"受身の助字","g":"〜される","m":["「見＋動詞」で受身を表す。動詞に「る・らる」を付けて読む","「見」を『みる』と読む別用法と区別する"],"ex":"信而見疑。","kd":"信にして疑はる。","tr":"誠実であるのに疑われる。","lv":2,"c":["pass"],"cf":["b-bei"]},{"id":"b-bei","l":"b","t":"g","h":"被〜","r":"〜(ラル)","p":"受身の助字","g":"〜される(被害の含み)","m":["「被＋動詞」で受身。「る・らる」と読む","被害を受ける意味合いを帯びることが多い"],"ex":"忠而被謗。","kd":"忠にして謗らる。","tr":"忠実であるのに謗られる。","lv":2,"c":["pass"],"cf":["b-mi"]},{"id":"b-shosho","l":"b","t":"g","h":"為A所B","r":"AのBスル所ト為ル","p":"受身形","g":"AにBされる(受身)","m":["「為」＋動作の主体A＋「所」＋動詞B で受身","動作の主体Aが明示される受身形"],"ex":"後則為人所制。","kd":"後るれば則ち人の制する所と為る。","tr":"後れをとれば、人に制される。","lv":2,"c":["pass"],"note":"受身の形は四種：見・被・為A所B・〜於A(置き字)。"},{"id":"b-oite","l":"b","t":"g","h":"V於A","r":"AにVラル","p":"受身形(於・于・乎)","g":"AにVされる(受身)","m":["動詞の後に「於・于・乎」＋動作の主体A で受身を表す","「於」は置き字だが、読むときは「に」と補う","文脈で『AにVする』(場所・対象)と区別する"],"ex":"労力者治於人。","kd":"力を労する者は人に治めらる。","tr":"肉体を使って働く者は人に治められる。","lv":2,"c":["pass"],"cf":["b-shosho"]},{"id":"e-getpass","l":"e","t":"g","h":"get + p.p.","p":"受動(動作・変化を強調)","g":"〜される(偶発・被害・変化)","m":["be p.p. は状態、get p.p. は動作・変化を強調","偶発的な出来事や被害のニュアンスが出やすい(get fired / get robbed)"],"ex":"He got fired for being late again and again.","tr":"彼は遅刻を繰り返して解雇された。","lv":1,"c":["pass"],"cf":["e-havepass"]},{"id":"e-havepass","l":"e","t":"g","h":"have + O + p.p.","p":"被害・依頼","g":"Oを〜される(被害)／Oを〜してもらう","m":["被害「Oを〜される」","依頼「Oを〜してもらう」","文脈で被害か依頼かを判断する"],"ex":"I had my bike stolen last night.","tr":"昨夜、自転車を盗まれた。","lv":1,"c":["pass"],"cf":["e-getpass"]},{"id":"e-pp-prep","l":"e","t":"g","h":"be surprised at / be interested in / be known to ...","p":"受動態＋前置詞の慣用","g":"感情・状態の受動態はbyでなく別の前置詞をとる","m":["be surprised at・be interested in・be satisfied with・be known to・be made of/from","動作主を示す by とは異なり、感情・状態の対象を前置詞で示す"],"ex":"The town is known to tourists for its hot springs.","tr":"その町は温泉で観光客に知られている。","lv":1,"c":["pass"]},{"id":"k-yaka","l":"k","t":"g","h":"や・か(係助詞)","p":"係助詞・結びは連体形","g":"疑問・反語の係り結び","m":["疑問「〜か」、反語「〜か、いや〜ない」","文中の「や・か」は結びが連体形になる(係り結び)","文末の「や・か」は終助詞"],"ex":"誰かこれを知らむ。","tr":"誰がこれを知っていようか、いや誰も知らない。","lv":1,"c":["rhet"],"cf":["k-yawa"],"note":"疑問か反語かは文脈で判断する。反語なら『〜か、いや〜ない』と訳す。"},{"id":"k-yawa","l":"k","t":"g","h":"やは・かは","p":"係助詞(反語)","g":"〜だろうか、いや〜ない(反語)","m":["「やは・かは」は原則として反語を表す","結びは連体形"],"ex":"月を見ずしてやは過ぐさむ。","tr":"月を見ずに過ごせようか、いや過ごせない。","lv":1,"c":["rhet"],"cf":["k-yaka"]},{"id":"k-ikade","l":"k","t":"w","h":"いかで(か)","p":"副詞","g":"どうして〜か(疑問・反語)／なんとかして〜(願望)","m":["疑問「どうして〜か」","反語「どうして〜か、いや〜ない」","意志・願望・命令を伴うと「なんとかして〜たい」"],"ex":"いかでかはこれを知らむ。","tr":"どうしてこれを知っていようか、いや知らない。","lv":1,"c":["rhet"]},{"id":"k-ikaga","l":"k","t":"w","h":"いかが(は)〜む","p":"副詞","g":"どのように・どうして／どうしようか、いや〜ない(反語)","m":["「いかがはせむ」＝どうしようか、いやどうしようもない","「いかが」単独では『どのように』『どうして』"],"ex":"今はいかがはせむ。","tr":"今となってはどうしようもない(どうしようか、いやどうしようもない)。","lv":2,"c":["rhet"]},{"id":"k-nado","l":"k","t":"w","h":"など(か)・なぞ","p":"疑問の副詞","g":"どうして〜か(理由を問う)","m":["理由を尋ねる疑問の副詞","「か」が付くと結びは連体形になる"],"ex":"などか、かく急ぎ給ふ。","tr":"どうして、このようにお急ぎになるのか。","lv":1,"c":["rhet"]},{"id":"b-ani","l":"b","t":"g","h":"豈〜(乎・哉・邪)","r":"あニ〜ンや","p":"反語の副詞","g":"どうして〜か、いや〜ない(反語)","m":["文末に「や」を補い「あに〜んや」と読む","「豈」は反語専用(単純な疑問には使わない)"],"ex":"豈可不慎乎。","kd":"豈に慎まざるべけんや。","tr":"どうして慎まずにいられようか。","lv":1,"c":["rhet"],"note":"反語の型：豈〜哉／安〜哉／何〜乎。"},{"id":"b-izukunzo","l":"b","t":"g","h":"安・焉・悪〜","r":"いづクンゾ〜ンや","p":"疑問・反語の副詞","g":"どうして〜か(反語)／どこに〜か(場所)","m":["「いづくんぞ〜んや」と読み、反語になることが多い","「いづくにか」と読めば場所を問う疑問(安在・焉在)"],"ex":"燕雀安知鴻鵠之志哉。","kd":"燕雀 安くんぞ鴻鵠の志を知らんや。","tr":"小さな鳥にどうして大きな鳥の志がわかろうか。","lv":2,"c":["rhet"]},{"id":"b-nanzo","l":"b","t":"g","h":"何〜","r":"なんゾ〜(ン)","p":"疑問詞","g":"どうして・なぜ／何(の)","m":["「なんぞ」＝理由(なぜ)・反語","「何為」「何故」＝なんすれぞ・なにゆゑぞ(理由を問う)","名詞を修飾して『何の〜』と読む場合もある"],"ex":"何不去。","kd":"何ぞ去らざる。","tr":"どうして立ち去らないのか。","lv":1,"c":["rhet"],"cf":["b-izukunzo"]},{"id":"b-ka","l":"b","t":"g","h":"〜乎／〜哉／〜耶／〜邪","r":"〜か(や)","p":"文末の助字","g":"疑問・反語・詠嘆を表す文末の助字","m":["疑問「〜か」","反語「〜か、いや〜ない」","詠嘆「〜だなあ」(哉に多い)","乎・耶・邪は疑問・反語、哉は詠嘆・反語が多い"],"ex":"賢哉回也。","kd":"賢なるかな回や。","tr":"賢いことだなあ、回(顔回)は。","lv":1,"c":["rhet"]},{"id":"b-fuekiko","l":"b","t":"g","h":"不亦〜乎","r":"また〜ずや(亦た〜ならずや)","p":"詠嘆の句形","g":"なんと〜ではないか(詠嘆)","m":["反語の形だが、意味は強い詠嘆・肯定","「亦た〜ずや」と読む"],"ex":"有朋自遠方来、不亦楽乎。","kd":"朋有り遠方より来たる、亦た楽しからずや。","tr":"友人が遠方から訪ねてくる。なんと楽しいことではないか。","lv":1,"c":["rhet"]},{"id":"b-ikan","l":"b","t":"g","h":"如何・奈何・若何","r":"いかん(セン)","p":"疑問・反語の句形","g":"どうしようか／どうすればよいか(方法・処置)","m":["「AをB如何せん」＝どうしようもない(反語)","「何如」は『どうであるか』(状態を問う)"],"ex":"虞兮虞兮奈若何。","kd":"虞や虞や若を奈何せん。","tr":"虞よ、虞よ、おまえをどうしようか。","lv":2,"c":["rhet"],"note":"項羽の『垓下歌』の一節。"},{"id":"e-howcould","l":"e","t":"g","h":"How could S + V?","p":"修辞疑問(反語)","g":"どうして〜できようか(いや、できない)","m":["形は疑問文、意味は強い否定","「How could you ...?」は非難・驚きを表す"],"ex":"How could I refuse such a kind offer?","tr":"こんな親切な申し出をどうして断れようか。","lv":1,"c":["rhet"]},{"id":"e-whoknows","l":"e","t":"g","h":"Who knows? / Who can tell? / Who cares?","p":"修辞疑問","g":"誰にもわからない・誰も気にしない","m":["Who knows ...? は『誰にもわからない』(＝No one knows)","疑問詞を使った修辞疑問は否定の意味になる"],"ex":"Who knows what the future will bring?","tr":"未来に何が起こるかなど、誰にもわからない。","lv":1,"c":["rhet"]},{"id":"e-negq","l":"e","t":"g","h":"Isn't it ...? / Aren't you ...?","p":"否定疑問文(感嘆・確認)","g":"〜ではないか(詠嘆・確認)","m":["否定疑問文で、同意を求めたり感嘆を表したりする","Don't you think ...? は『〜と思わないか』(意見を求める)"],"ex":"Isn't it wonderful to see old friends again?","tr":"旧友にまた会えるなんて、素晴らしいではないか。","lv":1,"c":["rhet"]},{"id":"e-whynot","l":"e","t":"g","h":"Why not + 原形? / Why don't you ...?","p":"提案・勧誘","g":"〜してはどうか(勧誘・提案)","m":["否定を含む疑問の形で『〜しないのか→〜してはどうか』と勧める","Why not ...? は単独でも使える"],"ex":"Why not ask her for help?","tr":"彼女に助けを求めてはどうか。","lv":1,"c":["rhet"]},{"id":"e-whatuse","l":"e","t":"g","h":"What is the use of ~ing? / What's the point of ~ing?","p":"修辞疑問","g":"〜して何になる(いや、何にもならない)","m":["形は疑問、意味は『〜しても無駄だ』","It is no use ~ing とほぼ同じ内容"],"ex":"What is the use of worrying about it now?","tr":"今そんなことを心配して何になるのか。","lv":2,"c":["rhet"]},{"id":"k-ba","l":"k","t":"g","h":"未然形＋ば／已然形＋ば","p":"接続助詞","g":"未然形＋ば＝仮定／已然形＋ば＝確定","m":["未然形＋ば：順接の仮定条件「もし〜ならば」","已然形＋ば：順接の確定条件(原因・理由「〜ので」／偶然「〜と」／恒常「〜と必ず」)"],"ex":"雨降らば行かじ。／雨降れば行かず。","tr":"雨が降るならば行くまい。／雨が降るので行かない。","lv":1,"c":["cond"],"note":"『ば』の直前が未然形か已然形かで、仮定か確定かが決まる。"},{"id":"k-moshi","l":"k","t":"w","h":"もし・たとひ〜とも","p":"副詞(仮定)","g":"もし〜ならば／たとえ〜としても","m":["「もし」は仮定条件を示す副詞","「たとひ〜とも」は逆接の仮定「たとえ〜ても」"],"ex":"たとひ雨降るとも、行かむ。","tr":"たとえ雨が降っても、行こう。","lv":1,"c":["cond"]},{"id":"k-domo","l":"k","t":"g","h":"ども・ど／とも","p":"接続助詞(逆接)","g":"ども＝確定逆接(〜けれども)／とも＝仮定逆接(たとえ〜ても)","m":["「ども・ど」は已然形に付き、事実を認めた上での逆接","「とも」は終止形(形容詞は連用形)に付き、仮定の逆接"],"ex":"急げども、間に合はず。","tr":"急いだけれども、間に合わない。","lv":1,"c":["cond"]},{"id":"k-mashi","l":"k","t":"g","h":"ませば〜まし／せば〜まし","p":"反実仮想","g":"もし〜だったら…だろうに(事実に反する仮想)","m":["「未然形＋ば〜まし」の形で、事実に反することを仮想する","ましかば・ませば・せば と形は変わるが、結びは「まし」"],"ex":"世の中に絶えて桜のなかりせば春の心はのどけからまし","tr":"この世にまったく桜がなかったなら、春の心はのどかであっただろうに。","lv":2,"c":["cond"],"note":"古今集・在原業平の歌。"},{"id":"b-moshi","l":"b","t":"g","h":"若・如・苟","r":"もシ〜(バ)","p":"仮定の副詞","g":"もし〜ならば","m":["「苟」は『いやしくも』とも読み、『かりにも・もし』の意","文末は「〜ば」で結ぶ(未然形＋ば)"],"ex":"苟富貴、無相忘。","kd":"苟くも富貴ならば、相忘るること無からん。","tr":"もし出世して富貴になったなら、互いに忘れないようにしよう。","lv":2,"c":["cond"]},{"id":"b-tozon","l":"b","t":"g","h":"縦・仮令","r":"たとヒ〜トモ","p":"仮定の逆接","g":"たとえ〜でも(仮定の逆接)","m":["「縦」「仮令」＝たとひ〜とも","「雖」(確定)との違い：縦＝仮定、雖＝事実"],"ex":"縦江東父兄憐而王我、我何面目見之。","kd":"縦ひ江東の父兄憐れみて我を王とするも、我何の面目ありて之に見えん。","tr":"たとえ江東の父老たちが哀れんで私を王としてくれても、私はどんな顔をして彼らに会えようか。","lv":2,"c":["cond"],"cf":["b-iedomo"],"note":"後半の「何の面目ありて〜ん」は反語。"},{"id":"b-iedomo","l":"b","t":"g","h":"雖","r":"〜(ト)いへどモ","p":"逆接の助字","g":"〜ではあるが・〜とはいえ(確定の逆接)","m":["「〜と雖も」と読み、事実を認めた上での逆接","仮定の「縦(たとひ)」と区別する"],"ex":"雖有嘉肴、弗食、不知其旨也。","kd":"嘉肴有りと雖も、食らはざれば、其の旨きを知らざるなり。","tr":"うまい料理があっても、食べなければ、そのうまさはわからない。","lv":1,"c":["cond"],"cf":["b-tozon"]},{"id":"b-sunawachi","l":"b","t":"g","h":"〜則…","r":"〜ば則(すなは)チ…","p":"条件・結果をつなぐ助字","g":"〜ならば…(順接の条件)","m":["「則」は条件と結果をつなぐ助字","条件句を「〜ば」と読み、「則ち」で結果を示す"],"ex":"学而不思則罔。","kd":"学びて思はざれば則ち罔し。","tr":"学ぶだけで考えなければ、はっきりとは理解できない。","lv":1,"c":["cond"]},{"id":"e-if","l":"e","t":"g","h":"if / as long as / provided (that)","p":"条件の接続詞","g":"もし〜ならば／〜しさえすれば／〜する限り","m":["as long as は条件『〜しさえすれば』(時間の『〜する間』の意もある)","provided (that)・providing (that) は『〜という条件で』"],"ex":"You will succeed as long as you keep trying.","tr":"努力し続ける限り、あなたは成功するだろう。","lv":1,"c":["cond"]},{"id":"e-unless","l":"e","t":"g","h":"unless","p":"条件の接続詞","g":"〜でない限り・もし〜でなければ","m":["unless＝if ... not(〜でない限り)","条件節の中では、未来のことも現在形で表す"],"ex":"We will go hiking unless it rains.","tr":"雨が降らない限り、ハイキングに行きます。","lv":1,"c":["cond"]},{"id":"e-evenif","l":"e","t":"g","h":"even if","p":"譲歩の接続詞","g":"たとえ〜でも(仮定の譲歩)","m":["事実かどうか不明な、仮定の話","even though は事実を認めた上での譲歩"],"ex":"Even if it rains, we will go.","tr":"たとえ雨が降っても、行きます。","lv":1,"c":["cond"],"cf":["e-eventhough"]},{"id":"e-eventhough","l":"e","t":"g","h":"even though / although / though","p":"譲歩の接続詞","g":"〜だけれども(事実の譲歩)","m":["事実(既定)を認めた上での譲歩","even if(仮定)とは区別する"],"ex":"Even though he was tired, he kept working.","tr":"彼は疲れていたけれども、働き続けた。","lv":1,"c":["cond"],"cf":["e-evenif"]},{"id":"e-ifpast","l":"e","t":"g","h":"If S + 過去形, S would 原形","p":"仮定法過去","g":"現在の事実に反する仮想(もし〜なら…だろうに)","m":["仮定法過去：If S 過去形(be動詞は were), S would / could / might 原形","現在・未来の事実に反する仮定"],"ex":"If I were a bird, I would fly to you.","tr":"もし私が鳥なら、あなたのもとへ飛んでいくのに。","lv":1,"c":["cond"],"cf":["e-ifpp"]},{"id":"e-ifpp","l":"e","t":"g","h":"If S had p.p., S would have p.p.","p":"仮定法過去完了","g":"過去の事実に反する仮想(もし〜だったら…だっただろうに)","m":["仮定法過去完了：If S had p.p., S would / could / might have p.p.","過去の事実に反する仮定"],"ex":"If I had known, I would have told you.","tr":"もし知っていたなら、あなたに伝えていたのに。","lv":1,"c":["cond"],"cf":["e-ifpast"]},{"id":"k-beshi","l":"k","t":"g","h":"べし","p":"助動詞・終止形接続(ラ変型は連体形)","g":"推量・意志・可能・当然・命令・適当","m":["推量「〜だろう」","意志「〜しよう」","可能「〜できる」","当然「〜すべきだ」","命令「〜せよ」","適当「〜のがよい」"],"ex":"人は誠実なるべし。","tr":"人は誠実であるべきだ。","lv":1,"c":["dut"],"cf":["k-mu"],"note":"六つの意味は『すいかとめて』(推・意・可・当・命・適)で覚える。"},{"id":"k-mu","l":"k","t":"g","h":"む(むず)","p":"助動詞・未然形接続","g":"推量・意志・勧誘・適当・仮定・婉曲","m":["推量「〜だろう」","意志「〜(よ)う」","勧誘「〜(し)ないか」","適当・命令「〜するのがよい」","仮定「〜としたら」","婉曲「〜ような」"],"ex":"われ行かむ。","tr":"私は行こう。","lv":1,"c":["dut"],"cf":["k-beshi"],"note":"主語が一人称なら意志、三人称なら推量、二人称なら勧誘・適当が原則。「〜む＋名詞」(連体形)は仮定・婉曲。"},{"id":"k-mahoshi","l":"k","t":"g","h":"まほし・たし・ばや・なむ","p":"願望の助動詞・助詞","g":"願望「〜たい」(なむ＝他への願望「〜てほしい」)","m":["まほし(未然形接続)・たし(連用形接続)は自分の願望","ばや(未然形接続の終助詞)も自分の願望","なむ(未然形接続の終助詞)は他者への願望「〜てほしい」"],"ex":"都へ帰らまほし。","tr":"都へ帰りたい。","lv":1,"c":["dut"],"note":"接続で見分ける：まほし＝未然形、たし＝連用形。"},{"id":"k-ntosu","l":"k","t":"g","h":"〜んとす(むとす)","p":"「む」＋「と」＋「す」","g":"〜しようとする・今にも〜しそうだ","m":["主語が人なら意志「〜しようとする」","物・自然なら「今にも〜しそうだ」","漢文の再読文字「将・且」の訓読と同じ形"],"ex":"日暮れんとす。","tr":"日が今にも暮れようとする。","lv":2,"c":["dut"]},{"id":"b-masani","l":"b","t":"g","h":"当・応","r":"まさニ〜ベシ","p":"再読文字","g":"当然「〜すべきだ」／推量「きっと〜だろう」","m":["読む順：当(まさに)→動詞→「べし」(返って再び読む)","当然「〜すべきだ」のほか、推量「きっと〜だろう」の意もある"],"ex":"人当自重。","kd":"人は当に自重すべし。","tr":"人は自重すべきである。","lv":1,"c":["dut"],"cf":["b-subekaraku"]},{"id":"b-subekaraku","l":"b","t":"g","h":"須","r":"すべからク〜ベシ","p":"再読文字","g":"〜する必要がある・〜べきだ","m":["読む順：須(すべからく)→動詞→「べし」","『すべて』の意ではない(よくある誤用)"],"ex":"行楽須及春。","kd":"行楽 須らく春に及ぶべし。","tr":"楽しみは、春のうちに済ませるべきだ。","lv":1,"c":["dut"],"cf":["b-masani","b-yoroshiku"]},{"id":"b-yoroshiku","l":"b","t":"g","h":"宜","r":"よろシク〜ベシ","p":"再読文字","g":"〜するのがよい・〜すべきだ(適当)","m":["読む順：宜(よろしく)→動詞→「べし」","「ふさわしい・適切だ」という意味が中心"],"ex":"宜早帰。","kd":"宜しく早く帰るべし。","tr":"早く帰るのがよい。","lv":2,"c":["dut"],"cf":["b-subekaraku"]},{"id":"b-masanto","l":"b","t":"g","h":"将・且","r":"まさニ〜ントす","p":"再読文字","g":"今にも〜しようとする・〜しようとする","m":["「将」「且」は『まさに〜(せ)んとす』と再読する","近い未来の動作を表す。『今にも〜しそうだ』"],"ex":"日将暮、客不至。","kd":"日将に暮れんとするも、客至らず。","tr":"日が今にも暮れようとするが、客は来ない。","lv":1,"c":["dut"]},{"id":"b-hossu","l":"b","t":"g","h":"欲","r":"〜(ント)ほっス","p":"願望","g":"〜したい・〜しようとする","m":["「〜(セ)んと欲す」と読む","願望・意志を表す。「願」「請」も近い働き"],"ex":"己欲立而立人。","kd":"己立たんと欲して人を立て。","tr":"自分が身を立てようと思えば、まず人を立ててやる。","lv":1,"c":["dut"]},{"id":"b-fuka","l":"b","t":"g","h":"可・不可","r":"〜ベシ／〜ベカラず","p":"許可・可能・当然","g":"〜してよい・〜できる・〜すべきだ(不可＝〜してはならない)","m":["可＝許可・可能・当然(「べし」と読む)","不可＝不許可・不可能・禁止(「べからず」)","不能(あたハず)は能力がない意味の不可能"],"ex":"此物不可食。","kd":"此の物は食ふべからず。","tr":"この物は食べてはならない(食べられない)。","lv":1,"c":["dut"]},{"id":"e-should","l":"e","t":"g","h":"should / ought to","p":"助動詞(義務・当然)","g":"〜すべきだ(義務・当然)","m":["should は当然・助言、ought to はやや強い道徳的義務","否定は should not / ought not to"],"ex":"You ought to apologize to her.","tr":"彼女に謝るべきだ。","lv":1,"c":["dut"],"cf":["e-must"]},{"id":"e-must","l":"e","t":"g","h":"must / have to","p":"助動詞(強い義務)","g":"〜しなければならない(強い義務)","m":["must＝話し手自身の判断による義務","have to＝外的事情による義務(過去・未来は had to / will have to)","must not は禁止、don't have to は不必要"],"ex":"I have to leave early tomorrow.","tr":"明日は早く出なければならない。","lv":1,"c":["dut"],"cf":["e-should"]},{"id":"e-better","l":"e","t":"g","h":"had better + 原形","p":"助言(強い忠告)","g":"〜したほうがよい(しないと困る)","m":["助言だが強い響きを持ち、目上には不適","否定形は had better not"],"ex":"You had better see a doctor.","tr":"医者に診てもらったほうがいい。","lv":1,"c":["dut"]},{"id":"e-want","l":"e","t":"g","h":"want to / would like to / hope to","p":"願望の表現","g":"〜したい(願望)","m":["would like to は丁寧な願望","wish は実現しにくい願望(仮定法)"],"ex":"I would like to visit Kyoto again.","tr":"もう一度京都を訪れたい。","lv":1,"c":["dut"]},{"id":"e-shall","l":"e","t":"g","h":"Shall we ...? / Let's ...","p":"勧誘・提案","g":"〜しましょう(勧誘・提案)","m":["Shall we ...? は提案・勧誘","Let's ... は勧誘(付加疑問は shall we?)"],"ex":"Shall we take a short break?","tr":"少し休憩しましょうか。","lv":1,"c":["dut"]},{"id":"e-about","l":"e","t":"g","h":"be about to do","p":"近い未来","g":"今にも〜しようとしている","m":["まさに始まる直前の動作を表す","be on the point of ~ing とほぼ同じ"],"ex":"The train is about to leave.","tr":"電車は今にも発車しようとしている。","lv":1,"c":["dut"]},{"id":"e-suggest","l":"e","t":"g","h":"suggest / insist / demand that S (should) 原形","p":"要求・提案の that 節","g":"提案・主張・要求の that節は原形(should)","m":["that 節の動詞は原形(または should＋原形)になる","insist が『事実の主張』の意味なら通常の時制"],"ex":"The doctor insisted that he take a rest.","tr":"医者は彼に休養を取るよう強く求めた。","lv":2,"c":["dut"]},{"id":"k-asamashi","l":"k","t":"w","h":"あさまし","p":"形容詞(シク)","g":"驚きあきれる／あきれるほどひどい","m":["予想外のことに驚きあきれる","あきれるほどひどい・情けない・嘆かわしい"],"ex":"あさましき事を聞きて、言ふべき言葉もなし。","tr":"あきれた話を聞いて、言うべき言葉もない。","lv":1,"c":["surp"],"cf":["k-ayashi"]},{"id":"k-ayashi","l":"k","t":"w","h":"あやし","p":"形容詞(シク)","g":"不思議だ・不審だ／身分が低い・粗末だ","m":["怪し：不思議だ・変だ・不審だ","賤し：身分が低い・みすぼらしい・見苦しい"],"ex":"あやしき鳥の鳴く声す。","tr":"不思議な鳥の鳴く声がする。","lv":1,"c":["surp"],"cf":["k-asamashi"]},{"id":"k-odoroku","l":"k","t":"w","h":"驚く","p":"動詞(四段)","g":"はっと気づく・目が覚める(古語)","m":["はっと気づく・ふと気づく","眠りから目が覚める","(中世以降)びっくりする(現代語と同じ)"],"ex":"夜半に驚きて、月を見る。","tr":"夜中に目が覚めて、月を見る。","lv":1,"c":["surp"],"note":"現代語の『驚く』とずれる古語の代表(偽の友)。"},{"id":"k-mezurashi","l":"k","t":"w","h":"めづらし","p":"形容詞(シク)","g":"すばらしい・愛すべき／目新しい","m":["すばらしい・賞賛すべきだ","目新しい・めったにない(現代語に近い)"],"ex":"めづらしき花を見つけたり。","tr":"めったにない(すばらしい)花を見つけた。","lv":1,"c":["surp"]},{"id":"k-yuyushi","l":"k","t":"w","h":"ゆゆし","p":"形容詞(シク)","g":"程度がはなはだしい：不吉だ・恐ろしい／すばらしい","m":["不吉だ・恐れ多い・恐ろしい(悪い意味)","すばらしい・立派だ(よい意味)","程度がはなはだしい・たいへんな"],"ex":"ゆゆしき大事なり。","tr":"たいへんな一大事である。","lv":2,"c":["surp"],"note":"畏れ慎む意の『斎(ゆ)』が語源とされ、良い悪いを問わず『程度がはなはだしい』に広がった。"},{"id":"b-odoroku","l":"b","t":"w","h":"驚","r":"おどろク","p":"動詞","g":"驚く・びっくりする","m":["訓読では現代語と同じ『驚く』","「大驚」は『大いに驚く』"],"ex":"聞之大驚。","kd":"之を聞きて大いに驚く。","tr":"これを聞いて大いに驚いた。","lv":1,"c":["surp"]},{"id":"b-kai","l":"b","t":"w","h":"怪","r":"あやシム","p":"意動用法の動詞","g":"不思議に思う・不審に思う","m":["「怪之」＝これを怪しむ","名詞では『怪しいもの・化け物』の意"],"ex":"衆皆怪之。","kd":"衆皆之を怪しむ。","tr":"人々はみなこれを不審に思った。","lv":1,"c":["surp"],"cf":["b-i"],"note":"「怪しむ」は、古文の形容詞「あやし」と同じ語根。"},{"id":"b-i","l":"b","t":"w","h":"異","r":"あやシム／こと(ナリ)","p":"動詞・形容動詞","g":"不思議に思う／異なる","m":["「異之」＝これを不思議に思う","「異〜」＝〜と異なる・特別だ"],"ex":"衆以為異。","kd":"衆 以て異と為す。","tr":"人々はこれを不思議なことだとした。","lv":2,"c":["surp"],"cf":["b-kai"]},{"id":"e-astonish","l":"e","t":"w","h":"astonish / amaze / astound","p":"感情を表す他動詞","g":"(人を)驚かせる(受身で『驚く』)","m":["感情の動詞は『人を〜させる』の意味(他動詞)","人が驚く＝be astonished / amazed (at)"],"ex":"I was astonished at the sudden change.","tr":"私はその急な変化に驚いた。","lv":1,"c":["surp"]},{"id":"e-suspicious","l":"e","t":"w","h":"suspicious","p":"形容詞","g":"怪しい・疑いを抱いた","m":["「疑わしい(物・人)」と「疑いを抱く(人)」の両方に使う","動詞 suspect＝〜ではないかと疑う"],"ex":"The guard grew suspicious of the stranger.","tr":"警備員はその見知らぬ人を怪しむようになった。","lv":1,"c":["surp"]},{"id":"e-wonder","l":"e","t":"w","h":"wonder","p":"動詞・名詞","g":"不思議に思う・驚嘆する／〜かなと思う","m":["wonder at＝〜に驚く","wonder if / wh- ＝〜かしらと思う","名詞では『驚異・不思議』"],"ex":"She wondered at his calm reply.","tr":"彼女は彼の落ち着いた返事を不思議に思った。","lv":1,"c":["surp"],"cf":["e-marvel"]},{"id":"e-marvel","l":"e","t":"w","h":"marvel (at)","p":"動詞・名詞","g":"驚嘆する・感嘆する","m":["marvel at＝〜に驚嘆する","名詞では『驚くべきもの』"],"ex":"Tourists marvel at the ancient temple.","tr":"観光客は古い寺に驚嘆する。","lv":2,"c":["surp"],"cf":["e-wonder"]},{"id":"e-awful","l":"e","t":"w","h":"awful / terrific / tremendous","p":"形容詞","g":"程度がはなはだしい(元は畏れ：恐ろしい／すばらしい)","m":["awful＝恐ろしい・ひどい(元は awe-inspiring)","terrific＝恐ろしい→すばらしい(口語)","tremendous＝ものすごい"],"ex":"The storm caused an awful amount of damage.","tr":"その嵐は恐ろしいほどの被害をもたらした。","lv":2,"c":["surp"]},{"id":"k-aware","l":"k","t":"w","h":"あはれなり","p":"形容動詞","g":"しみじみと心を打つ(感動・悲哀・趣)","m":["しみじみと胸を打つ感動(喜び・悲しみ・愛情・賞賛のすべてを含む)","かわいそうだ・悲しい","しみじみとした趣がある"],"ex":"秋の夕暮れ、あはれなり。","tr":"秋の夕暮れは、しみじみと趣深い。","lv":1,"c":["emo"]},{"id":"k-kanashi","l":"k","t":"w","h":"かなし(悲し・愛し)","p":"形容詞(シク)","g":"悲しい／いとしい・かわいい","m":["悲し：悲しい・せつない","愛し：いとしい・かわいくてたまらない"],"ex":"かなしき子を見る。","tr":"いとしい子を見る。","lv":1,"c":["emo"],"cf":["k-itoshi"]},{"id":"k-ushi","l":"k","t":"w","h":"うし(憂し)","p":"形容詞(ク)","g":"つらい・いやだ・憂鬱だ","m":["自分の境遇・状況をつらいと感じる","「世の中を憂し」＝世間や境遇がつらい"],"ex":"世の中を憂しと思ふ。","tr":"世の中をつらいと思う。","lv":1,"c":["emo"],"cf":["k-tsurashi"]},{"id":"k-tsurashi","l":"k","t":"w","h":"つらし","p":"形容詞(ク)","g":"(相手の仕打ちが)薄情だ・冷たい","m":["相手の冷淡さ・無情さを恨めしく思う","『憂し』は自分の境遇、『つらし』は相手の仕打ちがつらい"],"ex":"人のつらき心を恨む。","tr":"あの人の薄情な心を恨む。","lv":2,"c":["emo"],"cf":["k-ushi"]},{"id":"k-itoshi","l":"k","t":"w","h":"いとほし","p":"形容詞(シク)","g":"気の毒だ・かわいそうだ／いとしい","m":["気の毒だ・かわいそうだ(同情が中心)","いとしい・かわいい"],"ex":"親のいとほしがりて、涙を流す。","tr":"親が気の毒に思って、涙を流す。","lv":1,"c":["emo"],"cf":["k-kanashi"]},{"id":"b-ai","l":"b","t":"w","h":"哀","r":"かなシ・あはれム","p":"形容詞・動詞","g":"悲しい／あわれむ","m":["「哀」は悲しむ・あわれむ","「哀哉」＝悲しいことだなあ"],"ex":"哀吾生之須臾。","kd":"吾が生の須臾なるを哀しむ。","tr":"私の人生がほんの一瞬であることを悲しむ。","lv":2,"c":["emo"],"cf":["b-ren"],"note":"蘇軾『前赤壁賦』の一節。"},{"id":"b-ren","l":"b","t":"w","h":"憐","r":"あはれム","p":"動詞","g":"あわれむ・いつくしむ・いとおしむ","m":["「憐れむ」＝かわいそうに思う・いとおしく思う","「可憐」＝かわいそう／かわいらしい"],"ex":"天意憐幽草。","kd":"天意 幽草を憐れむ。","tr":"天は人目につかない草をいつくしむ。","lv":2,"c":["emo"],"cf":["b-ai"],"note":"李商隠『晩晴』の一節。"},{"id":"b-yuu","l":"b","t":"w","h":"憂・愁","r":"うれフ","p":"動詞","g":"心配する・悲しむ・思い悩む","m":["「うれふ」＝心配する・思い悩む","「憂患」「愁思」などの熟語で使う"],"ex":"君子不憂不懼。","kd":"君子は憂へず懼れず。","tr":"君子は思い悩まず、恐れない。","lv":1,"c":["emo"]},{"id":"b-tan","l":"b","t":"w","h":"嘆・歎","r":"なげク","p":"動詞","g":"嘆く・ため息をつく・感嘆する","m":["「嘆息」＝ため息をつく","悲しみの嘆きにも、賞賛の感嘆にも使う"],"ex":"仰天而歎。","kd":"天を仰ぎて歎く。","tr":"天を仰いで嘆いた。","lv":1,"c":["emo"]},{"id":"e-pity","l":"e","t":"w","h":"pity / compassion / sympathy","p":"名詞","g":"哀れみ・同情","m":["pity＝上から見た哀れみ(かわいそうに思う気持ち)","compassion＝苦しみを分かち合う深い思いやり","sympathy＝共感・同情"],"ex":"I felt pity for the stray dog.","tr":"私はその野良犬を気の毒に思った。","lv":1,"c":["emo"],"cf":["e-grief"]},{"id":"e-grief","l":"e","t":"w","h":"grief / sorrow / lament","p":"名詞・動詞","g":"深い悲しみ／嘆く","m":["grief＝死別など深い悲しみ","sorrow＝悲しみ全般","lament＝嘆き悲しむ(動詞・名詞)"],"ex":"She was overcome with grief at his death.","tr":"彼女は彼の死に深い悲しみに打ちひしがれた。","lv":2,"c":["emo"],"cf":["e-pity"]},{"id":"e-poignant","l":"e","t":"w","h":"poignant / moving / touching","p":"形容詞","g":"胸を打つ・しみじみと心を動かす","m":["poignant＝切なく胸を刺すような","moving・touching＝感動的な"],"ex":"The film's ending was poignant.","tr":"その映画の結末は胸を打つものだった。","lv":2,"c":["emo"]},{"id":"e-melancholy","l":"e","t":"w","h":"melancholy","p":"名詞・形容詞","g":"憂鬱・物悲しい","m":["漠然とした物悲しさ","形容詞では『物悲しい・憂鬱な』"],"ex":"A melancholy mood filled the autumn evening.","tr":"物悲しい気分が秋の夕暮れを満たした。","lv":2,"c":["emo"]},{"id":"k-nakunaru","l":"k","t":"w","h":"亡くなる・隠る・身まかる","p":"動詞(婉曲表現)","g":"死ぬ(婉曲な言い方)","m":["「亡くなる」「隠る」「身まかる」「果つ」「失す」などは死の婉曲表現","「はかなくなる」「世を去る」も同じ"],"ex":"母はかなくなり給ひぬ。","tr":"母はお亡くなりになった。","lv":1,"c":["death"]},{"id":"k-inu","l":"k","t":"w","h":"往ぬ・去ぬ","p":"動詞(ナ行変格活用)","g":"去る・行ってしまう／(時が)過ぎる／死ぬ","m":["去る・行ってしまう","(時が)過ぎ去る","死ぬ(婉曲)"],"ex":"秋も往にけり。","tr":"秋も過ぎ去ってしまった。","lv":1,"c":["death"],"note":"ナ変動詞は『死ぬ』『往ぬ』の二語だけ。"},{"id":"k-shukke","l":"k","t":"w","h":"出家す・世を捨つ","p":"動詞(仏道に入る)","g":"出家する・俗世を捨てる","m":["「世を捨つ」「頭おろす」「髪おろす」「入道す」も出家の意","出家＝俗世の縁を断つこと(この世を去るような別れ)"],"ex":"つひに頭おろして、山に入りぬ。","tr":"ついに髪を下ろして、山に入った。","lv":2,"c":["death"]},{"id":"b-hou","l":"b","t":"c","h":"崩・薨・卒・不禄","r":"ほうズ・こうズ・そっス","p":"死の敬称","g":"身分別の死の言い方(崩＞薨＞卒＞不禄＞死)","m":["『礼記』にもとづく身分別の言い方","崩(天子)・薨(諸侯・高位)・卒(大夫)・不禄(士)・死(庶人)"],"ex":"帝崩。","kd":"帝 崩ず。","tr":"皇帝が亡くなった。","lv":2,"c":["death"],"note":"「崩御」「薨去」「卒去」などの熟語にも残っている。"},{"id":"b-sei","l":"b","t":"w","h":"逝","r":"ゆク","p":"動詞","g":"亡くなる(婉曲)／過ぎ去る","m":["「逝く」＝行ってしまう→亡くなる","「逝者」＝去り行くもの・亡き人"],"ex":"逝者如斯夫。","kd":"逝く者は斯くの如きか。","tr":"流れ去るものは、この川のようなものか。","lv":2,"c":["death"],"cf":["b-kyo"]},{"id":"b-kyo","l":"b","t":"w","h":"去","r":"さル","p":"動詞","g":"去る・離れる／取り除く","m":["現在地から離れる(古文の『往ぬ』と同じ)","取り除く意にも用いる(除去)"],"ex":"去者日以疎。","kd":"去る者は日に以て疎し。","tr":"去っていく者は日ごとに疎遠になる。","lv":2,"c":["death"],"cf":["b-sei"]},{"id":"e-passaway","l":"e","t":"w","h":"pass away","p":"句動詞(婉曲)","g":"亡くなる(婉曲)","m":["die の婉曲表現","他に：be gone、depart this life、lose one's life"],"ex":"His grandfather passed away last spring.","tr":"彼の祖父は昨春亡くなった。","lv":1,"c":["death"]},{"id":"e-deceased","l":"e","t":"w","h":"deceased / the late / perish","p":"形容詞・名詞・動詞","g":"故人の／亡き／(非業に)死ぬ","m":["the deceased＝故人","the late Mr. Smith＝亡きスミス氏","perish＝(災害・戦争などで)命を落とす"],"ex":"Thousands perished in the famine.","tr":"飢饉で数千人が命を落とした。","lv":2,"c":["death"]},{"id":"e-depart","l":"e","t":"w","h":"depart","p":"動詞","g":"出発する／(婉曲に)世を去る","m":["depart from＝〜を出発する・離れる","depart this life＝この世を去る(死ぬ)"],"ex":"The train departs at noon.","tr":"列車は正午に発車する。","lv":2,"c":["death"]}],"links":[["k-zu","b-fu","fn",2,"漢文の「不」は「〜ず」と読む。訓読は古文の打消助動詞「ず」でおこなうので、機能も形もそのまま対応する。"],["k-imada","b-imada","et",2,"漢文の再読文字「未」は古文の副詞「いまだ」で読む。訓読が古文の語をそのまま借りている。"],["b-imada","e-neverseen","syn",2,"「未嘗〜」＝have never p.p.。『これまで一度も〜したことがない』という経験の否定。"],["k-nanaso","b-nakare","fn",2,"古文のやわらかい禁止「な〜そ」と、漢文の禁止「勿・莫」はどちらも『〜するな』。"],["b-nakare","e-dont","syn",2,"勿・莫＝Don't ... / must not ...。"],["b-part","e-part","fn",2,"『不必〜』＝not necessarily。否定辞と副詞の位置(語順)で部分否定か全否定かが決まる点まで同じ。"],["b-part","k-tsuyu","cf",1,"全否定(つゆ〜ず)と部分否定(不必〜)を対比して覚える。"],["b-fufuku","e-nolonger","syn",2,"不復〜＝no longer 〜(もはや〜ない)。"],["b-fu","b-hi","cf",2,"不は動詞・形容詞、非は名詞の否定。"],["b-fu","b-mu","cf",2,"不は動作・状態の否定、無は存在の否定。"],["b-hi","b-mu","cf",1,"非(〜ではない)と無(〜がない)を混同しない。"],["k-zu","k-ji","cf",1,"ずは事実の打消、じは打消の推量・意志。"],["k-ji","k-mazi","cf",1,"じは未然形接続、まじは終止形接続。意味の幅もまじのほうが広い。"],["k-mazi","b-nakare","fn",1,"まじには禁止の用法があり、漢文の禁止「勿」と意味が重なる。"],["k-shimu","b-shi","fn",2,"漢文の使役「使A〜」の「〜しむ」は、古文の助動詞「しむ」そのもの。「Aをして〜しむ」と読む。"],["k-su","k-shimu","cf",1,"す・さすは動詞の種類で使い分け、しむはすべての動詞に付く。しむは漢文訓読調。"],["b-shi","e-make","fn",2,"使A V ＝ make A V。語順(使役語＋A＋動詞)まで同じで、Aが動作の主体になる点も共通。"],["b-rei","e-force","syn",1,"令＝命令的な使役。目上が強く『させる』点が force / compel に近い。"],["b-shi","b-rei","cf",1,"使・令・教・遣は同じ形。どれも『Aをして〜しむ』と読む。"],["b-ken","b-shi","cf",1,"遣＝人を派遣して〜させる。人を遣わす動作が入る点が使・令との違い。"],["k-setamau","k-su","cf",2,"「す・さす」の後に「給ふ」が付くと最高敬語。使役と尊敬の区別が頻出。"],["e-let","e-make","cf",2,"make は強制、let は許可。"],["e-have","e-get","cf",1,"have は立場上そうさせる、get は働きかけてそうさせる。"],["e-make","e-force","cf",1,"make は自然な流れも含み、force は無理強いの色が強い。"],["k-ruraru","b-mi","fn",2,"漢文の受身「見・被」は「〜らル」と読む。訓読に使う「る・らる」がそのまま受身の助動詞。"],["b-mi","b-bei","cf",1,"見・被はどちらも受身の助字。被は被害の含みを帯びやすい。"],["b-bei","e-havepass","sh",2,"「被〜」は被害を受ける含み。have＋O＋p.p.(被害)も同じ『被害を受ける』ニュアンス。"],["b-shosho","b-mi","cf",1,"受身形の種類：見・被・為A所B・〜於A。動作主Aが示されるかで見分ける。"],["b-oite","b-shosho","cf",1,"どちらも動作主Aを明示する受身。前に置く(為A所B)か、後ろに置く(V於A)かが違う。"],["e-getpass","e-havepass","cf",1,"get p.p. は主語自身が〜される。have O p.p. はOが〜される。"],["k-ruraru","k-su","cf",1,"る・らる／す・さす：どちらも未然形接続で、動詞の活用の種類で使い分ける。"],["k-yaka","b-ka","fn",2,"古文の係助詞「や・か」と、漢文の文末助字「乎・耶」は、どちらも疑問・反語のしるし。古文は文中(係り結び)にも、漢文は文末に置かれる。"],["k-yawa","b-ani","syn",2,"やは・かは＝豈〜(哉)。どちらも『〜だろうか、いや〜ない』の反語が中心。"],["k-ikade","b-izukunzo","syn",2,"いかで(か)＝いづくんぞ。『どうして〜か、いや〜ない』の意で対応する。"],["k-nado","b-nanzo","syn",2,"など(か)＝なんぞ。理由を問う疑問の副詞(なぜ)。"],["b-nanzo","e-whynot","fn",2,"「何不〜」＝Why not 〜? 否定を含む疑問が『〜してはどうか』という勧誘・詰問になる点が同じ。"],["b-fuekiko","e-negq","fn",2,"「不亦〜乎」＝Isn't it 〜? 否定の疑問形で、反語ではなく詠嘆・強い肯定を表す点まで同じ。"],["b-ani","e-howcould","syn",2,"豈〜哉＝How could ...? 疑問の形で強い否定(反語)を表す。"],["b-izukunzo","e-howcould","syn",2,"安〜哉＝How could / can ...? 『燕雀安知鴻鵠之志哉』＝How can a sparrow know the ambition of a swan?"],["b-nanzo","b-izukunzo","cf",1,"何(なぜ・なに)、安・焉(どうして・どこ)、豈(反語専用)。疑問詞ごとに意味の中心が違う。"],["b-ikan","e-whatuse","sh",1,"『AをB如何せん』(どうしようもない)は、What is the use of ...?(何になるのか)と同様に、疑問の形で無力感・無駄を表す。"],["k-ikaga","b-ikan","syn",2,"いかがはせむ＝如何せん。『どうしようか、いやどうしようもない』の反語。"],["k-yaka","k-yawa","cf",1,"や・か＝疑問と反語、やは・かは＝反語が原則。"],["k-ikade","k-ikaga","cf",1,"いかで＝どうして・なんとかして、いかが＝どのように・どうして。用法が重なるので前後の語で判断する。"],["k-mashi","e-ifpast","syn",2,"『せば〜まし』＝If S 過去形, S would 〜。事実に反する仮想を『仮定＋推量』の二段で表す点が同じ。"],["k-mashi","e-ifpp","syn",1,"過去の事実に反する場合も『ましかば〜まし』で表せる(英語は had p.p. / would have p.p. と形を変える)。"],["k-ba","e-if","fn",1,"未然形＋ば＝if(仮定)、已然形＋ば＝because / when(確定)。ばの前の活用形で仮定か確定かが決まる。"],["k-moshi","b-moshi","syn",2,"もし〜ば＝若・如・苟(もし)。仮定の副詞は、古文と漢文の訓読で同じ語。"],["k-moshi","e-evenif","syn",2,"たとひ〜とも＝even if。仮定の逆接。"],["b-tozon","e-evenif","syn",2,"縦・仮令＝even if(たとえ〜でも、仮定)。"],["b-iedomo","e-eventhough","syn",2,"雖＝even though / although(事実を認めた上での逆接)。"],["b-tozon","b-iedomo","cf",2,"縦(仮定)と雖(確定)の区別。"],["k-domo","b-iedomo","et",2,"漢文の「雖」は「いへども」と読む。「言ふ＋ども(已然形＋ども＝確定の逆接)」と同じ働き。"],["k-domo","e-eventhough","syn",1,"已然形＋ども＝〜だけれども＝although。"],["b-sunawachi","e-if","fn",1,"「〜ば則ち」＝if 〜, then ...。条件と結果を『則』で結ぶ。"],["e-unless","e-if","cf",1,"unless＝if ... not。"],["e-evenif","e-eventhough","cf",2,"even if(仮定)と even though(事実)の区別。"],["e-ifpast","e-ifpp","cf",2,"仮定法過去(現在の反実)と過去完了(過去の反実)の区別。"],["k-beshi","b-masani","fn",2,"再読文字「当・応」は『まさに〜べし』と読み、最後に古文の助動詞「べし」を読む。当然の意味が対応する。"],["k-beshi","b-subekaraku","fn",2,"『須らく〜べし』も結びは「べし」。"],["k-beshi","b-yoroshiku","fn",2,"『宜しく〜べし』も結びは「べし」。べしの「適当」の意味が中心。"],["b-masani","e-should","syn",2,"当・応＝should / ought to(当然・義務)。"],["b-yoroshiku","e-better","syn",1,"宜＝〜するのがよい＝had better / should(適当・助言)。"],["b-subekaraku","e-must","syn",1,"須＝〜する必要がある＝have to / need to に近い。"],["b-hossu","k-mahoshi","syn",2,"欲＝『〜んと欲す』。古文の願望まほし・たしと対応。"],["b-hossu","e-want","syn",2,"欲＝want to。"],["k-mahoshi","e-want","syn",1,"まほし・たし＝want to / would like to。"],["k-ntosu","b-masanto","et",2,"漢文の再読文字「将・且」の『〜んとす』は、古文の「んとす」と同じ語形。"],["b-masanto","e-about","syn",2,"将・且＝be about to(今にも〜しようとする)。"],["k-ntosu","e-about","syn",1,"〜んとす＝be about to。"],["k-mu","e-shall","syn",1,"む(勧誘・意志)＝Shall we 〜? / Let's 〜 / will(意志)。"],["k-mu","k-beshi","cf",2,"む・べしは意味が重なる。べしのほうが確信・当然などの強い意味を持つ。"],["b-fuka","k-beshi","fn",2,"『可』は「べし」、『不可』は「べからず」と読む。古文のべしの可能・当然・許可の意味が対応する。"],["b-fuka","e-dont","syn",1,"不可＝must not(禁止)。"],["e-should","e-must","cf",2,"should は助言・当然、must は強い義務。"],["e-should","e-better","cf",1,"should は穏やかな助言、had better は強い忠告。"],["b-masani","b-subekaraku","cf",1,"当・応・須・宜は、『べし』で結ぶ再読文字の仲間。意味の強さで区別する。"],["b-subekaraku","b-yoroshiku","cf",1,"須(必要)と宜(適当)。"],["k-ayashi","b-kai","et",2,"漢文の「怪」は「あやしむ」と読む。古文の形容詞「あやし」を動詞にした形で、語根が同じ。"],["k-ayashi","e-suspicious","syn",2,"あやし(不審だ)＝suspicious。"],["b-kai","e-suspicious","syn",2,"怪(あやしむ)＝be suspicious of / suspect。"],["k-odoroku","b-odoroku","cf",2,"古語「驚く」は『はっと気づく・目が覚める』。漢文の「驚」は現代語と同じ『びっくりする』。字は同じでも意味がずれる(偽の友)。"],["b-odoroku","e-astonish","syn",2,"驚＝be astonished / amazed。"],["k-mezurashi","e-marvel","sh",1,"めづらし(すばらしい・賞賛すべき)＝marvel(驚嘆する)。目を見張る驚きが賞賛へつながる点が似ている。"],["k-yuyushi","e-awful","sh",2,"ゆゆし(不吉・恐ろしい／すばらしい)＝awful / terrific。畏れの感情が良くも悪くも『程度がはなはだしい』意味に広がる点が似ている。"],["b-i","b-kai","cf",1,"怪・異はどちらも『あやしむ』と読める。怪＝不審、異＝不思議・特別。"],["k-asamashi","e-astonish","sh",1,"あさまし＝驚きあきれる。驚きが悪い方向に振れると『あきれる・情けない』になる。"],["k-asamashi","k-ayashi","cf",1,"あさまし(驚きあきれる)とあやし(不審だ)を混同しない。"],["e-wonder","b-kai","sh",2,"wonder＝不思議に思う。怪・異と同じく、『驚き』と『不思議がる』が地続き。"],["e-wonder","e-marvel","cf",1,"wonder＝不思議がる、marvel＝感嘆する。"],["k-aware","e-poignant","syn",2,"あはれ(しみじみと胸を打つ)＝poignant / moving。悲しみに限らない感動の質が近い。"],["k-itoshi","e-pity","syn",2,"いとほし(気の毒だ)＝pity。"],["b-ren","e-pity","syn",2,"憐(あはれむ)＝pity / feel compassion for。"],["k-aware","b-ren","syn",1,"あはれ(しみじみと心が動く)は、漢語では哀・憐(悲しむ・あわれむ)が近い。"],["k-kanashi","b-ai","syn",2,"かなし(悲し)＝哀・悲(かなしむ)。"],["k-ushi","b-yuu","syn",1,"憂し＝憂(うれふ)。字も『憂』で同じ。"],["b-yuu","e-melancholy","sh",1,"憂・愁(思い悩む)＝melancholy(憂鬱)。"],["b-tan","e-grief","sh",1,"嘆(なげく)＝lament / grieve。"],["k-ushi","k-tsurashi","cf",2,"憂しは自分の境遇がつらい、つらしは相手の仕打ちが薄情でつらい。"],["k-kanashi","k-itoshi","cf",1,"かなし(愛し)といとほしは、どちらも『いとしい』の意を持つ。いとほしは同情(気の毒)が中心。"],["k-aware","k-kanashi","cf",1,"あはれ＝しみじみ、かなし＝悲しい／いとしい。"],["b-ai","b-ren","cf",1,"哀(悲しむ)と憐(あわれむ)。"],["e-pity","e-grief","cf",1,"pity は他者への哀れみ、grief は自分の深い悲しみ。"],["k-nakunaru","e-passaway","syn",2,"亡くなる・身まかる＝pass away。死を直接言わない婉曲表現。"],["k-inu","b-kyo","syn",2,"往ぬ(去る)＝去。『去る』の意味が対応する。"],["k-inu","b-sei","sh",2,"往ぬ・逝(ゆク)は、『去る・行く』から『死ぬ』へ意味が広がる点が共通。"],["k-inu","e-depart","sh",2,"往ぬ(去る→死ぬ)＝depart(出発する→世を去る)。『行く』から『死ぬ』への意味の広がりが日英で並ぶ。"],["b-sei","e-passaway","syn",1,"逝＝pass away(亡くなる)。"],["b-hou","e-deceased","syn",1,"身分別の死の言い方と、故人を敬う言い方(the deceased / the late)。敬意を込めた死の語彙という点が近い。"],["k-nakunaru","b-hou","cf",1,"古文の死の婉曲表現(亡くなる)と、漢文の身分別の言い方(崩・薨・卒)：敬意の付け方が違う。"],["k-shukke","k-nakunaru","sh",1,"出家(世を捨つ)も俗世との別れ。『世を去る』の表現とつながる。"],["b-kyo","e-depart","syn",1,"去＝depart(離れる)。"],["b-sei","b-kyo","cf",1,"逝(亡くなる)と去(離れる)。"]]};</script>
+<script>
+'use strict';
+/* ===== core: util / data index / storage / scheduler ===== */
+const DAY = 864e5, MIN = 6e4;
+const LN = { k: '古', b: '漢', e: '英' };
+const LNAME = { k: '古文', b: '漢文', e: '英語' };
+const TN = { w: '語彙', g: '文法', c: '常識' };
+const ET = { syn: '同義・対応', fn: '機能対応', et: '語源・借用', sh: '意味の広がり', cf: '混同・対比' };
+
+function esc(s) {
+  return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+  });
+}
+function startOfDay(t) { const d = new Date(t); d.setHours(0, 0, 0, 0); return d.getTime(); }
+function endOfDay(t) { const d = new Date(t); d.setHours(23, 59, 59, 999); return d.getTime(); }
+function dayKey(t) {
+  const d = new Date(t);
+  return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+}
+function shuffle(a) {
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const t = a[i]; a[i] = a[j]; a[j] = t;
+  }
+  return a;
+}
+function pick(a) { return a[Math.floor(Math.random() * a.length)]; }
+
+/* ---------- data index ---------- */
+const DATA = (typeof window !== 'undefined' && window.__DATA__) || (typeof globalThis !== 'undefined' && globalThis.__DATA__) || { concepts: [], cards: [], links: [] };
+const CARD = {}, CONC = {}, ADJ = {}, BYCON = {};
+DATA.concepts.forEach(function (c, i) { c.i = i; CONC[c.id] = c; });
+DATA.cards.forEach(function (c, i) {
+  c.i = i; CARD[c.id] = c; c.c = c.c || []; c.m = c.m || [];
+  c.c.forEach(function (k) { (BYCON[k] = BYCON[k] || []).push(c.id); });
+});
+DATA.links.forEach(function (l) {
+  const a = l[0], b = l[1], t = l[2], s = l[3], n = l[4];
+  (ADJ[a] = ADJ[a] || []).push({ to: b, t: t, s: s, n: n });
+  (ADJ[b] = ADJ[b] || []).push({ to: a, t: t, s: s, n: n });
+});
+/* 新規カードの導入順: 概念順 → 概念内は 古・漢・英 を交互に */
+const NEWORD = (function () {
+  const out = [], seen = {};
+  DATA.concepts.forEach(function (con) {
+    const g = { k: [], b: [], e: [] };
+    DATA.cards.forEach(function (c) { if (c.c[0] === con.id) g[c.l].push(c.id); });
+    let more = true, i = 0;
+    while (more) {
+      more = false;
+      ['k', 'b', 'e'].forEach(function (l) { if (g[l][i]) { out.push(g[l][i]); seen[g[l][i]] = 1; more = true; } });
+      i++;
+    }
+  });
+  DATA.cards.forEach(function (c) { if (!seen[c.id]) out.push(c.id); });
+  return out;
+})();
+
+/* ---------- storage ---------- */
+const K_STATE = 'kbe1', K_LOG = 'kbe1log';
+let S = null, LOG = [], STORE_OK = true;
+function lsGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+function lsSet(k, v) { try { localStorage.setItem(k, v); return true; } catch (e) { STORE_OK = false; return false; } }
+function defaults() {
+  return { v: 1, cards: {}, set: { newPerDay: 15, len: 30, exp: true, lv: [1, 2, 3] }, day: { d: '', n: 0, x: 0 }, bk: 0, created: Date.now() };
+}
+function loadAll() {
+  try { S = JSON.parse(lsGet(K_STATE) || 'null'); } catch (e) { S = null; }
+  if (!S || !S.cards) S = defaults();
+  const d = defaults();
+  S.set = Object.assign({}, d.set, S.set || {});
+  S.day = Object.assign({}, d.day, S.day || {});
+  try { LOG = JSON.parse(lsGet(K_LOG) || '[]'); } catch (e) { LOG = []; }
+  if (!Array.isArray(LOG)) LOG = [];
+  rollDay();
+}
+function rollDay() {
+  const k = dayKey(Date.now());
+  if (S.day.d !== k) { S.day = { d: k, n: 0, x: 0 }; }
+}
+function saveState() { lsSet(K_STATE, JSON.stringify(S)); }
+function saveLog() {
+  if (LOG.length > 20000) LOG.splice(0, LOG.length - 20000);
+  lsSet(K_LOG, JSON.stringify(LOG));
+}
+function newState() { return { s: 0, ivl: 0, ez: 2.3, lp: 0, ok: 0, due: 0, last: 0, pi: 0, wk: 0, lk: -1, hist: '' }; }
+function st(id) { return S.cards[id] || (S.cards[id] = newState()); }
+function stPeek(id) { return S.cards[id] || null; }
+
+/* ---------- scheduler ---------- */
+function applyGrade(s, g, now) {
+  const early = s.s === 2 && s.due > endOfDay(now);
+  s.hist = (s.hist + g).slice(-8);
+  s.last = now;
+  if (g >= 3) s.ok++; else if (g === 1) s.ok = 0;
+  if (g === 1) {
+    if (s.s === 2) { s.lp++; s.pi = Math.max(1, s.ivl); }
+    s.s = 1; s.ivl = 0; s.ez = Math.max(1.3, s.ez - 0.2); s.due = now + 10 * MIN;
+  } else if (s.s < 2) {
+    if (g === 2) { s.s = 1; s.due = now + 10 * MIN; }
+    else {
+      let iv;
+      if (s.pi > 0) { iv = Math.max(1, Math.round(s.pi * 0.4)); if (g === 4) iv = Math.max(iv + 1, Math.round(iv * 1.5)); }
+      else iv = (g === 4 ? 3 : 1);
+      s.pi = 0; s.s = 2; s.ivl = iv; s.due = startOfDay(now) + iv * DAY;
+    }
+  } else if (!early) {
+    let iv;
+    if (g === 2) { iv = Math.max(1, Math.round(s.ivl * 1.2)); s.ez = Math.max(1.3, s.ez - 0.15); }
+    else if (g === 3) { iv = Math.max(s.ivl + 1, Math.round(s.ivl * s.ez)); }
+    else { iv = Math.max(s.ivl + 2, Math.round(s.ivl * s.ez * 1.35)); s.ez = Math.min(3, s.ez + 0.1); }
+    s.ivl = Math.min(180, iv); s.due = startOfDay(now) + s.ivl * DAY;
+  } else if (g === 2) {
+    s.due = Math.min(s.due, startOfDay(now) + DAY);
+  }
+  const f6 = (s.hist.slice(-6).match(/1/g) || []).length;
+  if (f6 >= 2) s.wk = 1;
+  else if (s.wk && s.hist.slice(-4).indexOf('1') < 0 && s.ok >= 4) s.wk = 0;
+}
+function fmtSpan(ms) {
+  if (ms < 3600e3) return Math.max(1, Math.round(ms / MIN)) + '分';
+  if (ms < DAY) return Math.round(ms / 3600e3) + '時間';
+  const d = Math.round(ms / DAY);
+  if (d < 30) return d + '日';
+  if (d < 365) return Math.round(d / 30) + 'か月';
+  return '1年+';
+}
+function previewGrade(s, g, now) {
+  const c = Object.assign({}, s);
+  applyGrade(c, g, now);
+  if (c.s === 2 && c.due > endOfDay(now)) return fmtSpan(Math.max(1, c.ivl) * DAY);
+  if (c.s === 2) return '今日';
+  return fmtSpan(Math.max(MIN, c.due - now));
+}
+function isHall(s) { return !!s && s.s === 2 && s.ivl >= 60; }
+function isDue(s, now) { return !!s && s.s >= 1 && s.due <= endOfDay(now); }
+function stateOf(id) {
+  const s = stPeek(id);
+  if (!s || s.s === 0) return 'new';
+  if (s.wk) return 'weak';
+  if (isHall(s)) return 'hall';
+  if (s.s === 1) return 'learn';
+  return 'review';
+}
+const STATE_LABEL = { new: '未学習', learn: '学習中', review: '復習', weak: '弱点', hall: '殿堂入り' };
+
+/* ---------- neighbors (つながり) ---------- */
+function neighbors(id) {
+  const c = CARD[id];
+  const explicit = (ADJ[id] || []).slice().sort(function (a, b) { return (b.s === 2 ? 1 : 0) - (a.s === 2 ? 1 : 0); });
+  const exIds = {}; exIds[id] = 1; explicit.forEach(function (e) { exIds[e.to] = 1; });
+  const hubs = [];
+  c.c.forEach(function (k) {
+    const con = CONC[k]; if (!con) return;
+    const others = (BYCON[k] || []).filter(function (x) { return !exIds[x]; });
+    hubs.push({ con: con, all: (BYCON[k] || []).filter(function (x) { return x !== id; }), others: others });
+  });
+  return { explicit: explicit, hubs: hubs };
+}
+function linkedTo(a, b) {
+  if ((ADJ[a] || []).some(function (e) { return e.to === b; })) return true;
+  return CARD[a].c.some(function (k) { return CARD[b].c.indexOf(k) >= 0; });
+}
+
+/* ---------- MCQ ---------- */
+function makeMCQ(card, dir) {
+  const key = dir === 'f' ? 'g' : 'h';
+  const correct = card[key];
+  const cand = [];
+  function add(id, w) {
+    const c = CARD[id];
+    if (!c || c.id === card.id || c.l !== card.l) return;
+    const v = c[key];
+    if (!v || v === correct) return;
+    cand.push({ v: v, w: w * (0.5 + Math.random()) });
+  }
+  if (dir === 'f') {
+    (card.cf || []).forEach(function (id) { add(id, 6); });
+    (ADJ[card.id] || []).forEach(function (e) { if (e.t === 'cf') add(e.to, 6); });
+    card.c.forEach(function (k) { (BYCON[k] || []).forEach(function (id) { add(id, 3); }); });
+  }
+  DATA.cards.forEach(function (c) {
+    if (c.l === card.l) {
+      const sameCon = c.c[0] === card.c[0];
+      const tw = c.t === card.t ? 1 : 0.15;
+      add(c.id, tw * (dir === 'r' ? (sameCon ? 0.3 : 1.5) : 1));
+    }
+  });
+  cand.sort(function (a, b) { return b.w - a.w; });
+  const seen = {}; seen[correct] = 1; const ds = [];
+  for (let i = 0; i < cand.length && ds.length < 3; i++) {
+    if (seen[cand[i].v]) continue; seen[cand[i].v] = 1; ds.push(cand[i].v);
+  }
+  if (ds.length < 3) return null;
+  const opts = shuffle([{ v: correct, ok: 1 }].concat(ds.map(function (v) { return { v: v, ok: 0 }; })));
+  return { dir: dir, opts: opts };
+}
+
+'use strict';
+/* ===== session: queue building / answering (DOM-free) ===== */
+const MODES = {
+  mix: { n: 'ミックス', d: '古・漢・英を混ぜて出題' },
+  chain: { n: '連鎖', d: 'つながりに沿って古→漢→英と辿る' },
+  k: { n: '古文', d: '古文のみ' },
+  b: { n: '漢文', d: '漢文のみ' },
+  e: { n: '英語', d: '英語のみ' },
+  weak: { n: '弱点', d: '間違えがちなものだけ' }
+};
+let SES = null;
+
+function lvOK(c) { return S.set.lv.indexOf(c.lv || 1) >= 0; }
+function modeOK(c, mode) { return (mode === 'k' || mode === 'b' || mode === 'e') ? c.l === mode : true; }
+function newAllowance() { return Math.max(0, S.set.newPerDay + (S.day.x || 0) - S.day.n); }
+
+function poolInfo(mode, now) {
+  rollDay();
+  const due = [], weak = [], fresh = [];
+  DATA.cards.forEach(function (c) {
+    if (!lvOK(c) || !modeOK(c, mode)) return;
+    const s = stPeek(c.id);
+    if (!s || s.s === 0) { fresh.push(c.id); return; }
+    if (s.wk) weak.push(c.id);
+    if (isDue(s, now)) due.push(c.id);
+  });
+  const fo = {}; NEWORD.forEach(function (id, i) { fo[id] = i; });
+  fresh.sort(function (a, b) { return fo[a] - fo[b]; });
+  due.sort(function (a, b) { return st(a).due - st(b).due; });
+  return { due: due, weak: weak, fresh: fresh };
+}
+function failScore(id) {
+  const h = st(id).hist.slice(-6);
+  let sc = 0; for (let i = 0; i < h.length; i++) if (h[i] === '1') sc += (i + 1);
+  return sc;
+}
+function buildSession(mode, now) {
+  const P = poolInfo(mode, now);
+  const L = S.set.len;
+  const items = [], used = {};
+  function push(id, kind) { if (used[id]) return false; used[id] = 1; items.push({ id: id, kind: kind }); return true; }
+  if (mode === 'weak') {
+    P.weak.slice().sort(function (a, b) { return failScore(b) - failScore(a); }).slice(0, L).forEach(function (id) { push(id, 'wk'); });
+  } else {
+    const nWeak = Math.round(L * 0.25);
+    const newCap = Math.min(newAllowance(), P.fresh.length);
+    const nNew = Math.min(Math.round(L * 0.15) || 1, newCap);
+    const weakDue = P.weak.filter(function (id) { return isDue(st(id), now); }).sort(function (a, b) { return failScore(b) - failScore(a); });
+    const weakRest = P.weak.filter(function (id) { return !isDue(st(id), now); }).sort(function (a, b) { return failScore(b) - failScore(a); });
+    weakDue.concat(weakRest).slice(0, nWeak).forEach(function (id) { push(id, 'wk'); });
+    const nRev = L - nNew - items.length;
+    P.due.forEach(function (id) { if (items.length < L - nNew && !used[id]) push(id, 'rev'); });
+    /* 復習が足りなければ新規を増やす（1日上限まで） */
+    let newTake = nNew;
+    if (items.length + newTake < L) newTake = Math.min(newCap, L - items.length);
+    let taken = 0;
+    P.fresh.forEach(function (id) { if (taken < newTake) { push(id, 'new'); taken++; } });
+  }
+  /* 並び: 復習/弱点はシャッフル、新規は概念順を保ったまま等間隔に挿入 */
+  const olds = shuffle(items.filter(function (x) { return x.kind !== 'new'; }));
+  const news = items.filter(function (x) { return x.kind === 'new'; });
+  const queue = olds.slice();
+  if (news.length) {
+    const step = Math.max(2, Math.floor((olds.length + news.length) / (news.length)));
+    news.forEach(function (n, i) { queue.splice(Math.min(queue.length, i * step), 0, n); });
+  }
+  return queue;
+}
+function startSession(mode) {
+  const now = Date.now();
+  const queue = buildSession(mode, now);
+  SES = { mode: mode, queue: queue, total: queue.length, done: 0, ok: 0, nNew: 0, cur: null, last: null, rq: {}, wkIn: 0, t0: now };
+  return SES;
+}
+
+function chooseFormat(item, s) {
+  if (item.kind === 'new') return 'learn';
+  const c = CARD[item.id];
+  const canMCQ = !!makeMCQ(c, 'f');
+  if (item.kind === 'test' || item.kind === 'again') return canMCQ ? 'mcq' : 'flip';
+  const r = Math.random();
+  if (s.wk) return (canMCQ && r < 0.8) ? 'mcq' : 'flip';
+  if (!canMCQ) return 'flip';
+  const shortHead = (c.h || '').length <= 10;
+  if (r < 0.40) return 'mcq';
+  if (r < 0.55 && shortHead && s.s === 2) return 'rev';
+  return 'flip';
+}
+function pickNext() {
+  if (!SES.queue.length) return null;
+  let idx = 0;
+  if (SES.mode === 'chain' && SES.last) {
+    const cand = [];
+    SES.queue.slice(0, 40).forEach(function (it, i) {
+      if (it.kind === 'again' || it.kind === 'test') return;
+      if (it.id !== SES.last && linkedTo(SES.last, it.id)) cand.push(i);
+    });
+    if (cand.length) {
+      const diff = cand.filter(function (i) { return CARD[SES.queue[i].id].l !== CARD[SES.last].l; });
+      idx = pick(diff.length ? diff : cand);
+    }
+  }
+  const item = SES.queue.splice(idx, 1)[0];
+  const c = CARD[item.id];
+  const s = st(item.id);
+  if (s.lk < 0) s.lk = (S.set.exp ? (Math.random() < 0.5 ? 1 : 0) : 1);
+  const fmt = chooseFormat(item, s);
+  let q = null;
+  if (fmt === 'mcq') q = makeMCQ(c, 'f');
+  if (fmt === 'rev') q = makeMCQ(c, 'r') || makeMCQ(c, 'f');
+  const cur = { item: item, fmt: (fmt === 'rev' && q && q.dir === 'f') ? 'mcq' : fmt, q: q, t0: Date.now(), phase: fmt === 'learn' ? 'a' : 'q', picked: -1, result: null, err: null };
+  SES.cur = cur;
+  return cur;
+}
+function showLinks(id) {
+  const s = stPeek(id);
+  return !S.set.exp || !s || s.lk !== 0;
+}
+function requeue(item, kind, min, max) {
+  const n = SES.rq[item.id] || 0;
+  if (n >= 3) return;
+  SES.rq[item.id] = n + 1;
+  const pos = Math.min(SES.queue.length, min + Math.floor(Math.random() * (max - min + 1)));
+  SES.queue.splice(pos, 0, { id: item.id, kind: kind });
+  SES.total++;
+}
+/* 新規カードの学習表示 → 次へ */
+function finishLearn() {
+  const cur = SES.cur, id = cur.item.id, s = st(id), now = Date.now();
+  s.s = 1; s.due = now + 10 * MIN; s.pi = 0; s.seen = now;
+  rollDay(); S.day.n++;
+  SES.nNew++; SES.done++;
+  LOG.push([now, id, 0, 3, 0, 0, s.lk, 0, SES.mode]);
+  requeue(cur.item, 'test', 4, 6);
+  SES.last = id;
+  saveState(); saveLog();
+}
+/* g: 1..4, fmtCode: 0 flip 1 mcq 2 rev 3 learn */
+function recordAnswer(g, ms, err) {
+  const cur = SES.cur, id = cur.item.id, s = st(id), now = Date.now();
+  const kindCode = { new: 0, test: 1, rev: 2, wk: 2, again: 3 }[cur.item.kind];
+  const fmtCode = { flip: 0, mcq: 1, rev: 2, learn: 3 }[cur.fmt];
+  if (cur.item.kind === 'test' && g === 4) g = 3;
+  applyGrade(s, g, now);
+  LOG.push([now, id, kindCode, fmtCode, g, Math.min(ms, 99999), s.lk, err || 0, SES.mode]);
+  SES.done++; if (g >= 3) SES.ok++;
+  if (g === 1) { requeue(cur.item, 'again', 3, 5); }
+  SES.last = id;
+  saveState(); saveLog();
+  return g;
+}
+function autoGrade(correct, ms, s, kind) {
+  if (!correct) return 1;
+  if (kind !== 'test' && s.s === 2 && s.ok >= 1 && ms < 3500) return 4;
+  return 3;
+}
+
+'use strict';
+/* ===== ui ===== */
+const APP = document.getElementById('app');
+let VIEW = { name: 'home' };
+let SHEET = null; // 詳細シート {id}
+
+function badge(l) { return '<span class="lb lb-' + l + '">' + LN[l] + '</span>'; }
+function dots(lv) { lv = lv || 1; return '<span class="lv" title="難度">' + '●'.repeat(lv) + '○'.repeat(3 - lv) + '</span>'; }
+function headHTML(c, cls) { return '<div class="head ' + (c.l === 'e' ? 'en' : 'ja') + ' ' + (cls || '') + '">' + esc(c.h) + '</div>'; }
+
+/* ---------- card detail / links ---------- */
+function bodyHTML(c) {
+  let h = '<div class="ans">';
+  h += '<div class="g">' + esc(c.g) + '</div>';
+  const meta = [];
+  if (c.r) meta.push('読み ' + esc(c.r));
+  if (c.p) meta.push(esc(c.p));
+  if (meta.length) h += '<div class="meta2">' + meta.join(' ／ ') + '</div>';
+  if (c.m && c.m.length) h += '<ul class="m">' + c.m.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul>';
+  if (c.ex) {
+    h += '<div class="ex"><div class="exs ' + (c.l === 'e' ? 'en' : 'ja') + '">' + esc(c.ex) + '</div>';
+    if (c.kd) h += '<div class="kd ja">' + esc(c.kd) + '</div>';
+    if (c.tr) h += '<div class="tr">' + esc(c.tr) + '</div>';
+    h += '</div>';
+  }
+  if (c.note) h += '<div class="note">' + esc(c.note) + '</div>';
+  h += '</div>';
+  return h;
+}
+function miniRef(id) {
+  const c = CARD[id];
+  return '<button class="ref" data-act="sheet" data-id="' + esc(id) + '">' + badge(c.l) + '<span class="rh ' + (c.l === 'e' ? 'en' : 'ja') + '">' + esc(c.h) + '</span><span class="rg">' + esc(c.g) + '</span></button>';
+}
+function linksHTML(id) {
+  const nb = neighbors(id);
+  if (!nb.explicit.length && !nb.hubs.length) return '';
+  let h = '<div class="links"><div class="lt">つながり</div>';
+  nb.explicit.slice(0, 5).forEach(function (e) {
+    h += '<div class="lk">' + miniRef(e.to) + '<div class="ln"><span class="et">' + esc(ET[e.t] || e.t) + (e.s === 2 ? '・強' : '') + '</span> ' + esc(e.n || '') + '</div></div>';
+  });
+  nb.hubs.forEach(function (hb) {
+    h += '<div class="hub"><div class="hn">概念「' + esc(hb.con.n) + '」</div>';
+    if (hb.con.s) h += '<div class="hs">' + esc(hb.con.s) + '</div>';
+    const byL = { k: [], b: [], e: [] };
+    hb.all.forEach(function (x) { byL[CARD[x].l].push(x); });
+    ['k', 'b', 'e'].forEach(function (l) {
+      if (!byL[l].length) return;
+      h += '<div class="hrow">' + badge(l) + byL[l].slice(0, 8).map(function (x) {
+        return '<button class="chip2 ' + (l === 'e' ? 'en' : 'ja') + '" data-act="sheet" data-id="' + esc(x) + '">' + esc(CARD[x].h) + '</button>';
+      }).join('') + '</div>';
+    });
+    h += '</div>';
+  });
+  h += '</div>';
+  return h;
+}
+function fullDetail(id) {
+  const c = CARD[id];
+  let h = '<div class="dhead">' + badge(c.l) + '<span class="tag">' + TN[c.t] + '</span>' + dots(c.lv) + '</div>' + headHTML(c);
+  h += bodyHTML(c);
+  const chips = c.c.map(function (k) { return CONC[k] ? '<span class="cc">' + esc(CONC[k].n) + '</span>' : ''; }).join('');
+  if (chips) h += '<div class="ccs">' + chips + '</div>';
+  if (showLinks(id)) h += linksHTML(id);
+  return h;
+}
+
+/* ---------- home ---------- */
+function homeView() {
+  const now = Date.now();
+  const P = poolInfo('mix', now);
+  const due = P.due.length, weak = P.weak.length, fresh = Math.min(newAllowance(), P.fresh.length);
+  const total = DATA.cards.length;
+  let seen = 0, hall = 0;
+  DATA.cards.forEach(function (c) { const s = stPeek(c.id); if (s && s.s > 0) seen++; if (isHall(s)) hall++; });
+  let h = '<div class="page"><header class="hd"><h1>古漢英</h1><div class="sub">' + total + '枚 ／ 学習済み ' + seen + ' ／ 殿堂入り ' + hall + '</div></header>';
+  h += '<div class="today"><div class="tc"><b>' + due + '</b><span>復習</span></div><div class="tc"><b>' + fresh + '</b><span>新規</span></div><div class="tc"><b>' + weak + '</b><span>弱点</span></div></div>';
+  h += '<div class="modes">';
+  ['mix', 'chain'].forEach(function (m) { h += '<button class="mode main" data-act="start" data-mode="' + m + '"><b>' + MODES[m].n + '</b><span>' + MODES[m].d + '</span></button>'; });
+  h += '</div><div class="modes3">';
+  ['k', 'b', 'e'].forEach(function (m) { h += '<button class="mode" data-act="start" data-mode="' + m + '"><b>' + MODES[m].n + '</b></button>'; });
+  h += '</div>';
+  h += '<button class="mode wide" data-act="start" data-mode="weak"><b>弱点のみ</b><span>' + weak + '枚 ／ 間違えがちなもの</span></button>';
+  h += '<div class="setline">1回 ' + S.set.len + '問 ／ 新規は1日 ' + S.set.newPerDay + '枚まで（残り ' + newAllowance() + '）</div>';
+  const days = S.bk ? Math.floor((now - S.bk) / DAY) : null;
+  if (LOG.length > 30 && (days === null || days >= 7)) {
+    h += '<div class="warn">バックアップ未実施' + (days === null ? '' : '（' + days + '日前）') + '。設定 → 書き出しで記録を保存できます。</div>';
+  }
+  if (!STORE_OK) h += '<div class="warn">この環境では学習記録を保存できません（プライベートブラウズ等）。</div>';
+  h += '<nav class="tabs"><button data-act="go" data-v="stats">統計</button><button data-act="go" data-v="list">一覧</button><button data-act="go" data-v="settings">設定</button></nav></div>';
+  return h;
+}
+
+/* ---------- session ---------- */
+function sessionView() {
+  const cur = SES.cur;
+  if (!cur) return doneView();
+  const c = CARD[cur.item.id], s = st(c.id);
+  const pct = SES.total ? Math.round(100 * SES.done / SES.total) : 0;
+  const kindTag = { new: '新規', rev: '復習', wk: '弱点', test: '確認', again: '再挑戦' }[cur.item.kind];
+  let h = '<div class="sess"><div class="top"><button class="x" data-act="quit" aria-label="終了">×</button><div class="bar"><i style="width:' + pct + '%"></i></div><span class="cnt">' + SES.done + '/' + SES.total + '</span></div>';
+  h += '<div class="cardv"><div class="meta">' + badge(c.l) + '<span class="tag">' + TN[c.t] + '</span>' + dots(c.lv) + '<span class="tag k">' + kindTag + '</span></div>';
+  const rev = cur.fmt === 'rev' && cur.q && cur.q.dir === 'r';
+  if (rev && cur.phase === 'q') h += '<div class="qlab">この意味にあたる語は？</div><div class="qg">' + esc(c.g) + '</div>';
+  else h += headHTML(c, cur.phase === 'a' ? 'sm' : '');
+  if (cur.phase === 'q' && cur.fmt === 'mcq' || (cur.phase === 'q' && rev)) {
+    h += '<div class="opts">' + cur.q.opts.map(function (o, i) {
+      return '<button class="opt ' + (rev ? (c.l === 'e' ? 'en' : 'ja') : '') + '" data-act="pick" data-i="' + i + '">' + esc(o.v) + '</button>';
+    }).join('') + '</div>';
+  }
+  if (cur.phase === 'a') {
+    if (cur.result !== null && cur.fmt !== 'learn') {
+      h += '<div class="res ' + (cur.result ? 'ok' : 'ng') + '">' + (cur.result ? '正解' : '不正解') + '</div>';
+    }
+    h += bodyHTML(c);
+    if (showLinks(c.id)) h += linksHTML(c.id);
+    if (cur.result === false) {
+      h += '<div class="errs"><span>ミスの種類（任意）</span>' + [['知らなかった', 1], ['うろ覚え', 2], ['混同した', 3], ['読み違い', 4]].map(function (e) {
+        return '<button class="chip' + (cur.err === e[1] ? ' on' : '') + '" data-act="err" data-e="' + e[1] + '">' + e[0] + '</button>';
+      }).join('') + '</div>';
+    }
+  }
+  h += '</div><div class="actions">';
+  if (cur.phase === 'q' && cur.fmt === 'flip') {
+    h += '<button class="btn" data-act="reveal">答えを見る</button>';
+  } else if (cur.phase === 'q') {
+    h += '<button class="btn ghost" data-act="dontknow">わからない</button>';
+  } else if (cur.fmt === 'learn') {
+    h += '<button class="btn" data-act="learned">次へ</button>';
+  } else if (cur.fmt === 'flip') {
+    const now = Date.now();
+    h += '<div class="gr">' + [[1, 'もう一度'], [2, '難しい'], [3, '良い'], [4, '簡単']].map(function (g) {
+      return '<button class="gb g' + g[0] + '" data-act="grade" data-g="' + g[0] + '"><b>' + g[1] + '</b><span>' + previewGrade(s, g[0], now) + '</span></button>';
+    }).join('') + '</div>';
+  } else {
+    h += '<div class="two' + (cur.result ? '' : ' solo') + '">' + (cur.result ? '<button class="btn ghost" data-act="unsure">自信なし</button>' : '') + '<button class="btn" data-act="next">次へ</button></div>';
+  }
+  h += '</div></div>';
+  return h;
+}
+function doneView() {
+  const n = SES.done, acc = n ? Math.round(100 * SES.ok / n) : 0;
+  const P = poolInfo(SES.mode === 'weak' ? 'weak' : 'mix', Date.now());
+  let h = '<div class="page"><header class="hd"><h1>' + (SES.total ? 'おつかれさま' : '今日の分は完了') + '</h1></header>';
+  if (SES.total) {
+    h += '<div class="today"><div class="tc"><b>' + n + '</b><span>回答</span></div><div class="tc"><b>' + acc + '%</b><span>正答率</span></div><div class="tc"><b>' + SES.nNew + '</b><span>新規</span></div></div>';
+  } else {
+    h += '<p class="mut">出題できるカードがありません。</p>';
+  }
+  h += '<div class="stack">';
+  if (P.fresh.length) h += '<button class="mode wide" data-act="moreNew"><b>新規をあと10枚学ぶ</b><span>未学習 ' + P.fresh.length + '枚</span></button>';
+  h += '<button class="mode wide" data-act="again"><b>続ける</b><span>同じモードでもう1回</span></button>';
+  h += '<button class="mode wide" data-act="home"><b>ホームへ</b></button></div></div>';
+  return h;
+}
+
+/* ---------- stats ---------- */
+function pct(a, b) { return b ? Math.round(100 * a / b) + '%' : '—'; }
+function statsView() {
+  const now = Date.now();
+  const cnt = { new: 0, learn: 0, review: 0, weak: 0, hall: 0 };
+  const byL = { k: { n: 0, seen: 0 }, b: { n: 0, seen: 0 }, e: { n: 0, seen: 0 } };
+  DATA.cards.forEach(function (c) {
+    const sc = stateOf(c.id); cnt[sc]++; byL[c.l].n++; if (sc !== 'new') byL[c.l].seen++;
+  });
+  const t7 = now - 7 * DAY;
+  const rows = LOG.filter(function (r) { return r[0] >= t7; });
+  const rev = rows.filter(function (r) { return r[2] === 2; });
+  const acc = {}; ['k', 'b', 'e'].forEach(function (l) { acc[l] = [0, 0]; });
+  rev.forEach(function (r) { const l = CARD[r[1]] && CARD[r[1]].l; if (!l) return; acc[l][1]++; if (r[4] >= 3) acc[l][0]++; });
+  const ab = { 0: [0, 0], 1: [0, 0] };
+  LOG.forEach(function (r) { if (r[2] === 2 && (r[6] === 0 || r[6] === 1)) { ab[r[6]][1]++; if (r[4] >= 3) ab[r[6]][0]++; } });
+  const mx = [0, 0], sg = [0, 0];
+  LOG.forEach(function (r) { if (r[2] === 2) { const t = (r[8] === 'mix' || r[8] === 'chain') ? mx : ((r[8] === 'k' || r[8] === 'b' || r[8] === 'e') ? sg : null); if (t) { t[1]++; if (r[4] >= 3) t[0]++; } } });
+  const days = []; for (let i = 6; i >= 0; i--) { const d0 = startOfDay(now - i * DAY); days.push([d0, LOG.filter(function (r) { return r[0] >= d0 && r[0] < d0 + DAY; }).length]); }
+  const maxd = Math.max(1, Math.max.apply(null, days.map(function (x) { return x[1]; })));
+  let h = '<div class="page"><header class="hd"><button class="back" data-act="home">‹ ホーム</button><h1>統計</h1></header>';
+  h += '<div class="card2"><div class="ct">状態</div><div class="kv">' + ['new', 'learn', 'review', 'weak', 'hall'].map(function (k) { return '<div><b>' + cnt[k] + '</b><span>' + STATE_LABEL[k] + '</span></div>'; }).join('') + '</div></div>';
+  h += '<div class="card2"><div class="ct">言語別（学習済み／全体、直近7日の復習正答率）</div>' + ['k', 'b', 'e'].map(function (l) {
+    return '<div class="rowl">' + badge(l) + '<span>' + byL[l].seen + ' / ' + byL[l].n + '</span><span class="r">' + pct(acc[l][0], acc[l][1]) + ' <small>(' + acc[l][1] + ')</small></span></div>';
+  }).join('') + '</div>';
+  h += '<div class="card2"><div class="ct">直近7日の回答数</div><div class="bars">' + days.map(function (d) {
+    return '<div class="b"><i style="height:' + Math.round(60 * d[1] / maxd) + 'px"></i><span>' + (new Date(d[0]).getMonth() + 1) + '/' + new Date(d[0]).getDate() + '</span><small>' + d[1] + '</small></div>';
+  }).join('') + '</div></div>';
+  h += '<div class="card2"><div class="ct">実験ログ（復習の正答率）</div>';
+  h += '<div class="rowl"><span>つながり表示あり</span><span class="r">' + pct(ab[1][0], ab[1][1]) + ' <small>(' + ab[1][1] + ')</small></span></div>';
+  h += '<div class="rowl"><span>つながり表示なし</span><span class="r">' + pct(ab[0][0], ab[0][1]) + ' <small>(' + ab[0][1] + ')</small></span></div>';
+  h += '<div class="rowl"><span>混合モード（ミックス・連鎖）</span><span class="r">' + pct(mx[0], mx[1]) + ' <small>(' + mx[1] + ')</small></span></div>';
+  h += '<div class="rowl"><span>単言語モード</span><span class="r">' + pct(sg[0], sg[1]) + ' <small>(' + sg[1] + ')</small></span></div>';
+  h += '<p class="mut sm">括弧内は回答数。数百件たまるまでは参考値です。表示あり/なしは新規カードごとにランダム割り当て（設定でオフにできます）。</p></div>';
+  const wk = DATA.cards.filter(function (c) { return stateOf(c.id) === 'weak'; }).sort(function (a, b) { return failScore(b.id) - failScore(a.id); }).slice(0, 12);
+  h += '<div class="card2"><div class="ct">弱点カード</div>' + (wk.length ? wk.map(function (c) { return '<div class="rowl">' + miniRef(c.id) + '<span class="r">誤答 ' + (st(c.id).hist.match(/1/g) || []).length + '</span></div>'; }).join('') : '<p class="mut sm">まだありません。</p>') + '</div></div>';
+  return h;
+}
+
+/* ---------- list ---------- */
+let LF = { l: 'all', st: 'all', q: '' };
+function listView() {
+  const q = LF.q.trim().toLowerCase();
+  const rows = DATA.cards.filter(function (c) {
+    if (LF.l !== 'all' && c.l !== LF.l) return false;
+    if (LF.st !== 'all' && stateOf(c.id) !== LF.st) return false;
+    if (q && (c.h + ' ' + c.g + ' ' + (c.r || '') + ' ' + (c.m || []).join(' ')).toLowerCase().indexOf(q) < 0) return false;
+    return true;
+  });
+  let h = '<div class="page"><header class="hd"><button class="back" data-act="home">‹ ホーム</button><h1>一覧</h1></header>';
+  h += '<input class="search" id="q" type="search" placeholder="検索（見出し・意味）" value="' + esc(LF.q) + '">';
+  h += '<div class="chips">' + [['all', 'すべて'], ['k', '古'], ['b', '漢'], ['e', '英']].map(function (x) { return '<button class="chip' + (LF.l === x[0] ? ' on' : '') + '" data-act="lf" data-k="l" data-v="' + x[0] + '">' + x[1] + '</button>'; }).join('') + '</div>';
+  h += '<div class="chips">' + [['all', '全状態'], ['new', '未学習'], ['learn', '学習中'], ['review', '復習'], ['weak', '弱点'], ['hall', '殿堂入り']].map(function (x) { return '<button class="chip' + (LF.st === x[0] ? ' on' : '') + '" data-act="lf" data-k="st" data-v="' + x[0] + '">' + x[1] + '</button>'; }).join('') + '</div>';
+  h += '<div class="mut sm">' + rows.length + '件</div><div class="lst">';
+  rows.slice(0, 300).forEach(function (c) { h += '<div class="li st-' + stateOf(c.id) + '">' + miniRef(c.id) + '</div>'; });
+  if (rows.length > 300) h += '<div class="mut sm">先頭300件を表示。検索で絞り込んでください。</div>';
+  h += '</div></div>';
+  return h;
+}
+
+/* ---------- settings ---------- */
+let CONFIRM_RESET = false, IO_MSG = '';
+function settingsView() {
+  const sopt = function (key, vals, unit) {
+    return '<div class="chips">' + vals.map(function (v) { return '<button class="chip' + (S.set[key] === v ? ' on' : '') + '" data-act="set" data-k="' + key + '" data-v="' + v + '">' + v + unit + '</button>'; }).join('') + '</div>';
+  };
+  let h = '<div class="page"><header class="hd"><button class="back" data-act="home">‹ ホーム</button><h1>設定</h1></header>';
+  h += '<div class="card2"><div class="ct">1回の問題数</div>' + sopt('len', [15, 30, 50, 80], '問') + '</div>';
+  h += '<div class="card2"><div class="ct">新規カード（1日の上限）</div>' + sopt('newPerDay', [5, 10, 15, 20, 30], '枚') + '</div>';
+  h += '<div class="card2"><div class="ct">対象レベル</div><div class="chips">' + [[1, '標準'], [2, '発展'], [3, '高度']].map(function (x) { return '<button class="chip' + (S.set.lv.indexOf(x[0]) >= 0 ? ' on' : '') + '" data-act="lv" data-v="' + x[0] + '">' + x[1] + '</button>'; }).join('') + '</div></div>';
+  h += '<div class="card2"><div class="ct">実験モード</div><div class="chips"><button class="chip' + (S.set.exp ? ' on' : '') + '" data-act="exp" data-v="1">ON（半数のカードでつながり非表示）</button><button class="chip' + (!S.set.exp ? ' on' : '') + '" data-act="exp" data-v="0">OFF（常に表示）</button></div><p class="mut sm">ONの間に新しく学ぶカードだけがランダムに振り分けられます。OFFにしても割り当て済みのカードの記録は残ります。</p></div>';
+  h += '<div class="card2"><div class="ct">バックアップ</div><div class="stack2"><button class="btn ghost" data-act="exportCopy">記録をコピー</button><button class="btn ghost" data-act="exportFile">ファイルとして保存</button></div><textarea id="imp" rows="3" placeholder="ここに書き出した記録を貼り付けて読み込み"></textarea><button class="btn ghost" data-act="import">貼り付けた記録を読み込む</button>' + (IO_MSG ? '<p class="mut sm">' + esc(IO_MSG) + '</p>' : '') + '<p class="mut sm">Safariで開いている場合、長期間アクセスしないと記録が消えることがあります。ホーム画面に追加して使うと安定します（記録は追加前と別扱いになるので、先にバックアップを）。</p></div>';
+  h += '<div class="card2"><div class="ct">リセット</div>' + (CONFIRM_RESET ? '<button class="btn danger" data-act="reset2">本当に全記録を消す</button> <button class="btn ghost" data-act="reset0">やめる</button>' : '<button class="btn ghost" data-act="reset1">学習記録をリセット</button>') + '</div></div>';
+  return h;
+}
+
+/* ---------- sheet ---------- */
+function sheetHTML() {
+  if (!SHEET) return '';
+  return '<div class="sheet-bg" data-act="closeSheet"></div><div class="sheet"><div class="sh-top"><button class="x" data-act="closeSheet">閉じる</button></div><div class="sh-body">' + fullDetail(SHEET.id) + '</div></div>';
+}
+
+/* ---------- render ---------- */
+function render() {
+  let h = '';
+  const v = VIEW.name;
+  if (v === 'home') h = homeView();
+  else if (v === 'session') h = sessionView();
+  else if (v === 'stats') h = statsView();
+  else if (v === 'list') h = listView();
+  else if (v === 'settings') h = settingsView();
+  APP.innerHTML = h + sheetHTML();
+  const sc = APP.querySelector('.cardv');
+  if (sc && VIEW._scroll) { sc.scrollTop = 0; VIEW._scroll = false; }
+  document.body.classList.toggle('lock', !!SHEET);
+}
+function go(name) { VIEW = { name: name }; SHEET = null; window.scrollTo(0, 0); render(); }
+function nextCard() {
+  const cur = pickNext();
+  VIEW = { name: 'session', _scroll: true };
+  if (!cur) SES.cur = null;
+  render();
+}
+function downloadText(name, text) {
+  try {
+    const blob = new Blob([text], { type: 'application/json' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob); a.download = name;
+    document.body.appendChild(a); a.click();
+    setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 1500);
+    return true;
+  } catch (e) { return false; }
+}
+function exportJSON() { return JSON.stringify({ app: 'kokan-ei', v: 1, at: Date.now(), state: S, log: LOG }); }
+function markBackup() { S.bk = Date.now(); saveState(); }
+
+/* ---------- events ---------- */
+APP.addEventListener('click', function (ev) {
+  const el = ev.target.closest('[data-act]');
+  if (!el) return;
+  const a = el.getAttribute('data-act');
+  const d = el.dataset;
+  const cur = SES && SES.cur;
+  switch (a) {
+    case 'start': startSession(d.mode); nextCard(); break;
+    case 'go': go(d.v); break;
+    case 'home': go('home'); break;
+    case 'quit': SES && (SES.cur = null); go('home'); break;
+    case 'again': startSession(SES.mode); nextCard(); break;
+    case 'moreNew': S.day.x = (S.day.x || 0) + 10; saveState(); startSession(SES.mode === 'weak' ? 'mix' : SES.mode); nextCard(); break;
+    case 'reveal': cur.phase = 'a'; cur.ms = Date.now() - cur.t0; render(); break;
+    case 'learned': finishLearn(); nextCard(); break;
+    case 'grade': recordAnswer(parseInt(d.g, 10), cur.ms || (Date.now() - cur.t0), 0); nextCard(); break;
+    case 'pick': {
+      if (cur.phase !== 'q') break;
+      const o = cur.q.opts[parseInt(d.i, 10)];
+      cur.ms = Date.now() - cur.t0; cur.picked = parseInt(d.i, 10); cur.result = !!o.ok; cur.phase = 'a';
+      const s = st(cur.item.id);
+      cur.g = autoGrade(cur.result, cur.ms, s, cur.item.kind);
+      cur.recorded = false; cur.err = null;
+      /* 記録は「次へ」で確定（自信なし・ミス種別の反映のため） */
+      render(); break;
+    }
+    case 'dontknow': cur.ms = Date.now() - cur.t0; cur.result = false; cur.phase = 'a'; cur.g = 1; cur.err = null; render(); break;
+    case 'err': cur.err = (cur.err === parseInt(d.e, 10)) ? null : parseInt(d.e, 10); render(); break;
+    case 'unsure': cur.g = 2; recordAnswer(2, cur.ms, 0); nextCard(); break;
+    case 'next': recordAnswer(cur.g, cur.ms, cur.err); nextCard(); break;
+    case 'sheet': SHEET = { id: d.id }; render(); break;
+    case 'closeSheet': SHEET = null; render(); break;
+    case 'lf': LF[d.k] = d.v; render(); break;
+    case 'set': S.set[d.k] = parseInt(d.v, 10); saveState(); render(); break;
+    case 'lv': {
+      const v = parseInt(d.v, 10), i = S.set.lv.indexOf(v);
+      if (i >= 0) { if (S.set.lv.length > 1) S.set.lv.splice(i, 1); } else S.set.lv.push(v);
+      saveState(); render(); break;
+    }
+    case 'exp': S.set.exp = d.v === '1'; saveState(); render(); break;
+    case 'exportCopy': {
+      const txt = exportJSON(); markBackup();
+      const done = function (ok) { IO_MSG = ok ? '記録をクリップボードにコピーしました。メモ等に貼って保管してください。' : 'コピーできませんでした。「ファイルとして保存」を使ってください。'; render(); };
+      try { navigator.clipboard.writeText(txt).then(function () { done(true); }, function () { done(false); }); } catch (e) { done(false); }
+      break;
+    }
+    case 'exportFile': { const ok = downloadText('kokan-ei-' + dayKey(Date.now()) + '.json', exportJSON()); markBackup(); IO_MSG = ok ? '保存を開始しました。' : '保存できませんでした。'; render(); break; }
+    case 'import': {
+      const ta = document.getElementById('imp'); let obj = null;
+      try { obj = JSON.parse(ta.value); } catch (e) { obj = null; }
+      if (obj && obj.state && obj.state.cards) { S = obj.state; LOG = Array.isArray(obj.log) ? obj.log : []; loadMerge(); saveState(); saveLog(); IO_MSG = '読み込みました（カード ' + Object.keys(S.cards).length + '件）。'; }
+      else IO_MSG = '読み込めませんでした。書き出した記録をそのまま貼り付けてください。';
+      render(); break;
+    }
+    case 'reset1': CONFIRM_RESET = true; render(); break;
+    case 'reset0': CONFIRM_RESET = false; render(); break;
+    case 'reset2': S = defaults(); LOG = []; saveState(); saveLog(); CONFIRM_RESET = false; IO_MSG = '';  render(); break;
+  }
+});
+APP.addEventListener('input', function (ev) {
+  if (ev.target && ev.target.id === 'q') {
+    LF.q = ev.target.value;
+    const pos = ev.target.selectionStart;
+    render();
+    const q = document.getElementById('q'); if (q) { q.focus(); try { q.setSelectionRange(pos, pos); } catch (e) { } }
+  }
+});
+function loadMerge() {
+  const d = defaults();
+  S.set = Object.assign({}, d.set, S.set || {});
+  S.day = Object.assign({}, d.day, S.day || {});
+  rollDay();
+}
+
+'use strict';
+/* ===== main ===== */
+(function () {
+  loadAll();
+  saveState();
+  render();
+  // 日付をまたいで開きっぱなしの場合に備え、復帰時にホームを更新
+  document.addEventListener('visibilitychange', function () {
+    if (!document.hidden && VIEW.name === 'home' && !SHEET) { rollDay(); render(); }
+  });
+})();
+
+
+</script>
+</body>
+</html>
